@@ -766,6 +766,12 @@ button,a{touch-action:manipulation}
 .asset-remove{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);color:var(--alert-text);cursor:pointer;font-size:1rem;line-height:1;flex:none}
 .asset-remove:hover{border-color:var(--alert-text)}
 .asset-thumb .asset-remove{position:absolute;top:6px;right:6px;background:rgba(22,22,22,.7);color:#fff;border-color:transparent}
+.asset-thumb-actions{position:absolute;top:6px;right:6px;display:flex;gap:6px}
+.asset-mini{width:24px;height:24px;border:none;background:rgba(22,22,22,.72);color:#fff;cursor:pointer;font-size:.85rem;line-height:1}
+.asset-mini:hover{background:rgba(22,22,22,.9)}
+.cover-tag{position:absolute;bottom:6px;left:6px;background:var(--accent-deep);color:#fff;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;padding:2px 6px}
+.check-field{display:flex;align-items:center;gap:8px;font-family:'Lynx Sans';font-size:.9rem;color:var(--text)}
+.check-field input{width:16px;height:16px}
 .lead-form textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.5}
 
 /* ---- Content: post cards + article (Press / Insights / Resources) ---- */

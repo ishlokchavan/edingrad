@@ -13,6 +13,7 @@ export async function DashboardChrome({
 }) {
   const t = await getTranslations('dashboard');
   const canManageContent = profile.role === 'admin' || profile.role === 'editor';
+  const canManageListings = profile.role === 'admin' || profile.role === 'agent';
   return (
     <>
       <header className="dash-header">
@@ -24,6 +25,7 @@ export async function DashboardChrome({
             <Link href="/dashboard">{t('tag')}</Link>
             {canManageContent && <Link href="/dashboard/content">Content</Link>}
             {canManageContent && <Link href="/dashboard/jobs">Jobs</Link>}
+            {canManageListings && <Link href="/dashboard/listings">Listings</Link>}
             {canManageContent && <Link href="/dashboard/applications">Applications</Link>}
             {profile.role === 'admin' && <Link href="/dashboard/leads">Leads</Link>}
           </nav>
