@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ListingImage } from '@/lib/listings';
 import { ArrowRight } from '@/components/icons/ui-icons';
 
@@ -15,6 +15,21 @@ export function ListingGallery({ images, title }: { images: ListingImage[]; titl
     (dir: number) => setActive((i) => (count ? (i + dir + count) % count : 0)),
     [count],
   );
+
+  // Touch swipe (mobile): horizontal drag past the threshold switches image.
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.changedTouches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touch.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touch.current.x;
+    const dy = t.clientY - touch.current.y;
+    touch.current = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -62,7 +77,15 @@ export function ListingGallery({ images, title }: { images: ListingImage[]; titl
       )}
 
       {open && (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={title} onClick={() => setOpen(false)}>
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={title}
+          onClick={() => setOpen(false)}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           <button type="button" className="lightbox-close" onClick={() => setOpen(false)} aria-label="Close">
             <span aria-hidden>×</span>
           </button>
