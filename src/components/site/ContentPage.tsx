@@ -18,6 +18,7 @@ export async function ContentPage({
   locale,
   contentNamespace,
   browse = false,
+  cols = 3,
 }: {
   slug: string;
   locale: string;
@@ -25,6 +26,8 @@ export async function ContentPage({
   contentNamespace: string;
   /** show a secondary "Browse properties" CTA */
   browse?: boolean;
+  /** points grid columns on wide screens */
+  cols?: 3 | 4;
 }) {
   setRequestLocale(locale);
   const tr = await getTranslations('routes');
@@ -41,7 +44,7 @@ export async function ContentPage({
         <div className="wrap">
           <div className="over">{t('pointsOver')}</div>
           <h2>{t('pointsTitle')}</h2>
-          <div className="mkt-grid mkt-grid-3">
+          <div className={`mkt-grid mkt-grid-${cols}`}>
             {points.map((p) => (
               <div key={p.title} className="mkt-card mkt-card-static">
                 <span className="mkt-card-title">{p.title}</span>

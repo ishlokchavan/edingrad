@@ -169,7 +169,21 @@
     "metaTitle": "Who We Are — Edingrad",
     "overline": "Who we are",
     "title": "Who we are",
-    "lead": "An advisory firm that favours what compounds over what flatters the quarter. Restraint, evidence, and the long view."
+    "lead": "An advisory firm that favours what compounds over what flatters the quarter. Restraint, evidence, and the long view.",
+    "pages": {
+      "about": {
+        "pointsOver": "How we think",
+        "pointsTitle": "Four principles, applied to every decision.",
+        "points": [
+          { "title": "Carefully considered", "body": "Before we act, we weigh whether a thing is essential — and how completely we are prepared to see it through." },
+          { "title": "Quietly confident", "body": "Authority is shown through restraint, not volume. We say it plainly, without hedging or hype." },
+          { "title": "Clearly communicated", "body": "Everything we publish serves comprehension. If it cannot be explained plainly, it is not ready." },
+          { "title": "Built to endure", "body": "We favour what compounds over what flatters the quarter, and hold to work that still looks sound a decade on." }
+        ],
+        "closingTitle": "Advice you could re-read in five years.",
+        "closingBody": "That is the standard we hold ourselves to."
+      }
+    }
   },
   "properties": {
     "metaTitle": "Properties — Edingrad",
