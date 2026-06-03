@@ -11,10 +11,11 @@ Carbon tokens, 24-icon set, charts, voice).
 
 ## What lives here
 
-This repo currently contains a **full, faithful port** of the guidelines site,
-served as a Next.js **server app** (the upstream uses `output: 'export'`; we drop
-that to enable route handlers, server actions, auth and ISR — see
-`docs/build-plan.md` §2).
+Per build-plan §2, this repo takes the **design system** (not the full guidelines
+microsite) and the product is built on top of it. The guidelines site stays live
+at its own deployment as the reference. The port is served as a Next.js **server
+app** (the upstream uses `output: 'export'`; we drop that to enable route
+handlers, server actions, auth and ISR).
 
 | Asset | Location | Notes |
 |---|---|---|
@@ -22,10 +23,14 @@ that to enable route handlers, server actions, auth and ISR — see
 | Fonts | `public/fonts/` | Self-hosted Palestra + Lynx Sans (12 woff2). Verified by checksum. |
 | Icons | `src/components/icons/ui-icons.tsx` | 24 IBM-style UI icons, typed React components. |
 | Colour data | `src/data/colors.ts` | Carbon palette, scales, families, categorical, alerts, surfaces. |
-| Primitives | `src/components/primitives/` | `Section`, `Pager`, `OnThisPage`, `Card`, `Pill`, `Swatch`, `DoDont`. |
-| Charts | `src/components/charts/` + `src/data/charts.ts` | Prop-driven `BarChart` / `LineChart` / `Donut` + catalogue. |
-| Theme | `src/lib/theme.tsx` | `ThemeProvider` + `useTheme`, persisted, system-aware, no-flash. |
+| Primitives | `src/components/primitives/ui.tsx` | `Card`, `Pill`, `Swatch`, `SwatchRow`, `DoDont`. |
+| Theme | `src/lib/theme.tsx` + `ThemeToggle` | `ThemeProvider` + `useTheme`, persisted, system-aware, no-flash. |
 | Voice | `docs/voice.md` | Derived from upstream `data/principles.ts`; the standard for all copy. |
+
+> The guidelines-only building blocks (the doc shell, content sections, the
+> `Section`/`Pager` primitives bound to the section registry, and the chart
+> components) are intentionally **not** in this repo — they live upstream. Pull
+> any of them in later if a product surface needs them.
 
 ## Rules
 
