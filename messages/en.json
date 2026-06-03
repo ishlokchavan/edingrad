@@ -185,6 +185,11 @@
       }
     }
   },
+  "agents": {
+    "empty": "Our agents will appear here soon.",
+    "listingsTitle": "Listings",
+    "noListings": "No published listings yet."
+  },
   "crypto": {
     "give": "You give",
     "amount": "Amount",
