@@ -33,12 +33,13 @@ export const env = {
   /** Service role bypasses RLS — server-only, never expose to the client. */
   supabaseServiceRoleKey: () => required('SUPABASE_SERVICE_ROLE_KEY'),
 
-  // Brevo (transactional email)
-  brevoApiKey: () => required('BREVO_API_KEY'),
-  brevoSenderEmail: () => process.env.BREVO_SENDER_EMAIL ?? 'no-reply@edingrad.com',
-  brevoSenderName: () => process.env.BREVO_SENDER_NAME ?? 'Edingrad',
-  /** Inbox that receives lead / application notifications. */
-  teamInboxEmail: () => required('TEAM_INBOX_EMAIL'),
+  // Brevo (transactional email over SMTP relay)
+  brevoSmtpUser: () => required('BREVO_SMTP_USER'),
+  brevoSmtpKey: () => required('BREVO_SMTP_KEY'),
+  brevoFromEmail: () => required('BREVO_FROM_EMAIL'),
+  brevoFromName: () => process.env.BREVO_FROM_NAME ?? 'Edingrad',
+  /** Inbox that receives lead / application notifications (defaults to the sender). */
+  teamInboxEmail: () => process.env.TEAM_INBOX_EMAIL || env.brevoFromEmail(),
 } as const;
 
 /** Env vars grouped by service, for the health check. */
@@ -48,5 +49,5 @@ export const ENV_GROUPS = {
     'NEXT_PUBLIC_SUPABASE_ANON_KEY',
     'SUPABASE_SERVICE_ROLE_KEY',
   ],
-  brevo: ['BREVO_API_KEY', 'TEAM_INBOX_EMAIL'],
+  brevo: ['BREVO_SMTP_USER', 'BREVO_SMTP_KEY', 'BREVO_FROM_EMAIL'],
 } as const satisfies Record<string, readonly string[]>;

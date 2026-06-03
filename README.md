@@ -101,7 +101,7 @@ same keys in Vercel project settings. Secrets are never committed.
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase clients (browser + server, RLS-respecting) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Privileged server client (bypasses RLS) — server-only |
-| `BREVO_API_KEY`, `BREVO_SENDER_EMAIL`, `BREVO_SENDER_NAME`, `TEAM_INBOX_EMAIL` | Transactional email |
+| `BREVO_SMTP_USER`, `BREVO_SMTP_KEY`, `BREVO_FROM_EMAIL` (+ optional `BREVO_FROM_NAME`, `TEAM_INBOX_EMAIL`) | Transactional email via Brevo SMTP relay |
 
 Foundation modules (build-plan Phase 0):
 

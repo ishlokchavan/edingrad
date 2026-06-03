@@ -1,8 +1,7 @@
 import 'server-only';
 
+import nodemailer, { type Transporter } from 'nodemailer';
 import { env } from '@/lib/env';
-
-const BREVO_ENDPOINT = 'https://api.brevo.com/v3/smtp/email';
 
 interface EmailAddress {
   email: string;
@@ -15,51 +14,50 @@ export interface SendEmailParams {
   htmlContent: string;
   textContent?: string;
   replyTo?: EmailAddress;
-  /** Brevo template id, if using a stored template instead of htmlContent. */
-  templateId?: number;
-  params?: Record<string, unknown>;
 }
 
-/**
- * Send a transactional email via the Brevo API. Server-only. Throws on a
- * non-2xx response so callers can decide whether a failed notification should
- * fail the request (usually it should not — log and continue).
- */
-export async function sendTransactionalEmail(input: SendEmailParams): Promise<{ messageId?: string }> {
-  const response = await fetch(BREVO_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'api-key': env.brevoApiKey(),
-      'content-type': 'application/json',
-      accept: 'application/json',
-    },
-    body: JSON.stringify({
-      sender: { email: env.brevoSenderEmail(), name: env.brevoSenderName() },
-      to: input.to,
-      subject: input.subject,
-      htmlContent: input.htmlContent,
-      textContent: input.textContent,
-      replyTo: input.replyTo,
-      templateId: input.templateId,
-      params: input.params,
-    }),
-    // Never cache email sends.
-    cache: 'no-store',
-  });
+let transporter: Transporter | null = null;
 
-  if (!response.ok) {
-    const detail = await response.text().catch(() => '');
-    throw new Error(`Brevo email failed (${response.status}): ${detail}`);
+/** Lazily build the Brevo SMTP-relay transport (reused within a warm instance). */
+function getTransporter(): Transporter {
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      host: 'smtp-relay.brevo.com',
+      port: 587,
+      secure: false, // STARTTLS upgrade on 587
+      auth: {
+        user: env.brevoSmtpUser(),
+        pass: env.brevoSmtpKey(),
+      },
+    });
   }
+  return transporter;
+}
 
-  const data = (await response.json().catch(() => ({}))) as { messageId?: string };
-  return data;
+function toAddress({ email, name }: EmailAddress) {
+  return name ? { address: email, name } : email;
 }
 
 /**
- * Notify the team inbox — used for new leads and job applications. The caller
- * provides a short subject and the body; reply-to is set to the enquirer when
- * available so the team can respond directly.
+ * Send a transactional email via Brevo's SMTP relay. Server-only. Throws on
+ * failure so callers can decide whether a failed notification should fail the
+ * request (usually it should not — log and continue).
+ */
+export async function sendTransactionalEmail(input: SendEmailParams): Promise<{ messageId: string }> {
+  const info = await getTransporter().sendMail({
+    from: { address: env.brevoFromEmail(), name: env.brevoFromName() },
+    to: input.to.map(toAddress),
+    replyTo: input.replyTo ? toAddress(input.replyTo) : undefined,
+    subject: input.subject,
+    html: input.htmlContent,
+    text: input.textContent,
+  });
+  return { messageId: info.messageId };
+}
+
+/**
+ * Notify the team inbox — used for new leads and job applications. Reply-to is
+ * set to the enquirer when available so the team can respond directly.
  */
 export async function notifyTeam(params: {
   subject: string;
