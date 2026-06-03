@@ -109,3 +109,36 @@ insert into public.post_assets (post_id, kind, url, label, mime_type, size_bytes
 select p.id,'download','data:application/pdf;base64,JVBERi0xLjQKMSAwIG9iajw8L1R5cGUvQ2F0YWxvZy9QYWdlcyAyIDAgUj4+ZW5kb2JqCjIgMCBvYmo8PC9UeXBlL1BhZ2VzL0tpZHNbMyAwIFJdL0NvdW50IDE+PmVuZG9iagozIDAgb2JqPDwvVHlwZS9QYWdlL1BhcmVudCAyIDAgUi9NZWRpYUJveFswIDAgMzAwIDE0NF0vQ29udGVudHMgNCAwIFIvUmVzb3VyY2VzPDwvRm9udDw8L0YxIDUgMCBSPj4+Pj4+ZW5kb2JqCjQgMCBvYmo8PC9MZW5ndGggNTI+PnN0cmVhbQpCVCAvRjEgMTYgVGYgMjQgODAgVGQgKEVkaW5ncmFkIHNhbXBsZSByZXBvcnQpIFRqIEVUCmVuZHN0cmVhbSBlbmRvYmoKNSAwIG9iajw8L1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYT4+ZW5kb2JqCnRyYWlsZXI8PC9Sb290IDEgMCBSPj4KJSVFT0Y=','Dubai Purchase Cost Reference 2026','application/pdf',398,1
 from public.posts p where p.slug='the-real-cost-of-a-dubai-purchase'
   and not exists (select 1 from public.post_assets a where a.post_id=p.id and a.kind='download');
+
+-- Sample published jobs (Careers)
+insert into public.jobs (slug, title, department, location, employment_type, description, status, published_at) values
+('senior-advisor-private-wealth','Senior Advisor, Private Wealth','Advisory','Dubai, UAE','Full-time',
+ $md$We are hiring a senior advisor to counsel private clients on real estate as an asset class.
+
+## What you will do
+
+- Advise clients one-to-one on acquisition, hold and exit decisions
+- Build evidence-led recommendations, traceable to a method
+- Own relationships with discretion and judgement
+
+## What we look for
+
+- A decade of advisory or investment experience
+- Plain, senior communication — no hype
+- RERA familiarity is an advantage$md$,
+ 'published', now() - interval '4 days'),
+('analyst-research','Analyst, Research','Research','Dubai, UAE','Full-time',
+ $md$Support the desk with rigorous market research and underwriting.
+
+## What you will do
+
+- Build and maintain cash-flow models on verifiable inputs
+- Track absorption, yields and pricing across communities
+- Turn data into a finding the team can act on
+
+## What we look for
+
+- Strong financial modelling and a sharp eye for sources
+- Clear writing that leads with the conclusion$md$,
+ 'published', now() - interval '12 days')
+on conflict (slug) do nothing;

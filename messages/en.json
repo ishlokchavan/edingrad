@@ -229,6 +229,26 @@
     "downloads": "Downloads",
     "download": "Download"
   },
+  "careers": {
+    "noOpenings": "No open roles right now. Check back soon.",
+    "applyTitle": "Apply for this role",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "cv": "Link to your CV (optional)",
+      "message": "Anything we should know? (optional)",
+      "submit": "Submit application",
+      "sending": "Submitting…",
+      "successTitle": "Thank you.",
+      "successBody": "We have your application and will be in touch if there is a fit.",
+      "errors": {
+        "save": "Something went wrong. Please try again, or email us directly.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
+      }
+    }
+  },
   "auth": {
     "title": "Sign in",
     "subtitle": "Access the Edingrad workspace.",

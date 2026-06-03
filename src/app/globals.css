@@ -765,6 +765,15 @@ button,a{touch-action:manipulation}
 .prose thead th{color:var(--low);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 .prose td{color:var(--mid);font-variant-numeric:tabular-nums}
 
+/* careers / jobs list */
+.job-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.job-item{border-bottom:1px solid var(--line)}
+.job-item>a{display:flex;flex-direction:column;gap:5px;padding:22px 0;color:inherit;transition:padding-left .2s}
+.job-item>a:hover{padding-left:8px}
+.job-title{font-family:'Lynx Sans';font-weight:600;font-size:1.2rem;color:var(--text)}
+.job-meta{font-size:.82rem;color:var(--low);text-transform:uppercase;letter-spacing:.08em}
+.apply{margin-top:40px;border-top:1px solid var(--line);padding-top:28px}
+
 /* gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:32px}
 .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);display:block}
