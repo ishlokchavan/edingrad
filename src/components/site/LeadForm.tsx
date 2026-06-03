@@ -69,6 +69,16 @@ export function LeadForm() {
         {fieldError('message') && <span className="form-err">{fieldError('message')}</span>}
       </div>
 
+      <fieldset className="form-radio">
+        <legend>{t('kind.label')}</legend>
+        <label>
+          <input type="radio" name="kind" value="speak-to-expert" defaultChecked /> {t('kind.expert')}
+        </label>
+        <label>
+          <input type="radio" name="kind" value="request-a-call" /> {t('kind.call')}
+        </label>
+      </fieldset>
+
       {/* Honeypot — hidden from users, tempting to bots. */}
       <div className="form-hp" aria-hidden="true">
         <label htmlFor="lf-company">Company</label>

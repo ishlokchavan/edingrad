@@ -345,6 +345,11 @@
       "messagePh": "The mandate, the timeframe, the question.",
       "submit": "Send",
       "sending": "Sending…",
+      "kind": {
+        "label": "How should we respond?",
+        "expert": "Reply by email",
+        "call": "Request a call"
+      },
       "fine": "We reply to every serious enquiry. Your details are used only to respond.",
       "successTitle": "Thank you.",
       "successBody": "We have your note and will reply with a plain read on whether — and how — we can help.",

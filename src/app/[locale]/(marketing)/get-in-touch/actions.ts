@@ -36,7 +36,9 @@ export async function submitLead(
   const phone = String(formData.get('phone') ?? '').trim();
   const message = String(formData.get('message') ?? '').trim();
   const audienceRaw = String(formData.get('audience') ?? '');
+  const kindRaw = String(formData.get('kind') ?? '');
   const honeypot = String(formData.get('company') ?? ''); // bots fill hidden fields
+  const kind = kindRaw === 'request-a-call' ? 'request-a-call' : 'speak-to-expert';
 
   const errors: Partial<Record<LeadField, LeadFieldError>> = {};
   if (!name) errors.name = 'required';
@@ -58,7 +60,7 @@ export async function submitLead(
   try {
     const supabase = createSupabaseServerClient();
     const { error } = await supabase.from('leads').insert({
-      type: 'speak-to-expert',
+      type: kind,
       name,
       email,
       phone: phone || null,
