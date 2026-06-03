@@ -658,6 +658,9 @@ button,a{touch-action:manipulation}
 .mkt-card p{color:var(--mid);font-size:.92rem;max-width:none}
 .mkt-card-arrow{margin-top:auto;color:var(--accent);transition:transform .2s}
 .mkt-card:hover .mkt-card-arrow{transform:translateX(4px)}
+/* static (non-link) info card: no hover affordance */
+.mkt-card-static{cursor:default}
+.mkt-card-static:hover{border-color:var(--line)}
 .mkt-note{margin-top:24px;color:var(--low);font-size:.9rem}
 
 /* CTA band */

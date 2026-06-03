@@ -55,7 +55,42 @@
     "metaTitle": "Who We Help — Edingrad",
     "overline": "Who we help",
     "title": "Who we help",
-    "lead": "Edingrad works with developers, asset managers and private clients — each served by the same standard of diligence, in the register they need."
+    "lead": "Edingrad works with developers, asset managers and private clients — each served by the same standard of diligence, in the register they need.",
+    "audiences": {
+      "developers": {
+        "pointsOver": "How we help",
+        "pointsTitle": "From launch strategy to absorption.",
+        "points": [
+          { "title": "Pricing with evidence", "body": "We price against comparable absorption and real demand, not aspiration — so launch pricing holds." },
+          { "title": "Positioning that lands", "body": "We define who each unit is for and why, then brief the channels that actually reach them." },
+          { "title": "Absorption, watched", "body": "We track take-up against plan and call the adjustment early, before it costs a quarter." }
+        ],
+        "closingTitle": "Bring us in before the launch, not after the stall.",
+        "closingBody": "The earlier we see the product, the more we can do with it."
+      },
+      "asset-management": {
+        "pointsOver": "How we help",
+        "pointsTitle": "Diligence that survives the investment committee.",
+        "points": [
+          { "title": "Underwriting", "body": "Cash-flow models built on verifiable inputs, with the assumptions stated and the downside named." },
+          { "title": "Hold or exit", "body": "A clear read on whether an asset still earns its place — reviewed on a schedule, not a whim." },
+          { "title": "Reporting", "body": "Plain, periodic reporting that leads with the finding and shows the method." }
+        ],
+        "closingTitle": "Allocate where capital compounds.",
+        "closingBody": "We bring the rigour; you keep the mandate."
+      },
+      "private-wealth": {
+        "pointsOver": "How we help",
+        "pointsTitle": "One reader, one decision at a time.",
+        "points": [
+          { "title": "Acquisition", "body": "We find and vet what fits your objective — not what is easiest to place." },
+          { "title": "Stewardship", "body": "Tenancy, financing and timing, managed with discretion and reported to you directly." },
+          { "title": "The exit", "body": "We say when to sell, and why, before the market makes the decision for you." }
+        ],
+        "closingTitle": "The asymmetry favours the patient holder.",
+        "closingBody": "Tell us the objective. We’ll tell you, plainly, how to reach it."
+      }
+    }
   },
   "whatWeDo": {
     "metaTitle": "What We Do — Edingrad",
