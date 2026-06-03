@@ -96,7 +96,74 @@
     "metaTitle": "What We Do — Edingrad",
     "overline": "What we do",
     "title": "What we do",
-    "lead": "Advisory across residential, commercial and off-plan, plus the services and tools that surround a transaction."
+    "lead": "Advisory across residential, commercial and off-plan, plus the services and tools that surround a transaction.",
+    "browseProperties": "Browse properties",
+    "services": {
+      "residential": {
+        "pointsOver": "How we work",
+        "pointsTitle": "Homes, read as assets.",
+        "points": [
+          { "title": "Yield, not gloss", "body": "We evaluate on net yield, tenure and the quality of the tenant — not the show-home finish." },
+          { "title": "The right hold", "body": "We match the unit to your horizon, and say when a sale beats a renewal." },
+          { "title": "End to end", "body": "Acquisition, financing and handover, coordinated so nothing slips." }
+        ],
+        "closingTitle": "Tell us the objective; we’ll find the unit.",
+        "closingBody": "Or browse what is on the market today."
+      },
+      "commercial": {
+        "pointsOver": "How we work",
+        "pointsTitle": "Space, read as cash flow.",
+        "points": [
+          { "title": "Covenant first", "body": "Income is only as good as the tenant behind it. We weigh the covenant before the cap rate." },
+          { "title": "Expiry and risk", "body": "We map lease expiries and re-letting risk, so the hold carries no surprises." },
+          { "title": "Repositioning", "body": "Where there is upside in use or tenant mix, we name it and cost it." }
+        ],
+        "closingTitle": "Office, retail or industrial — judged on the numbers.",
+        "closingBody": "Or browse what is on the market today."
+      },
+      "off-plan": {
+        "pointsOver": "How we work",
+        "pointsTitle": "Pre-completion, priced honestly.",
+        "points": [
+          { "title": "Developer diligence", "body": "Track record, delivery history and balance sheet — checked before the brochure." },
+          { "title": "Timeline risk", "body": "We weigh completion risk and what a slip does to your return." },
+          { "title": "The real price", "body": "Payment plans flatter headline prices. We compute what you actually pay." }
+        ],
+        "closingTitle": "Buy the building, not the render.",
+        "closingBody": "Or browse what is on the market today."
+      },
+      "property-management": {
+        "pointsOver": "How we work",
+        "pointsTitle": "Stewardship, quietly done.",
+        "points": [
+          { "title": "Tenancy", "body": "Vetting, renewals and arrears handled so occupancy holds and disputes don’t." },
+          { "title": "Maintenance", "body": "Planned upkeep that protects the asset’s value, not just its appearance." },
+          { "title": "Reporting", "body": "Clear statements on income, cost and condition — on a schedule you can rely on." }
+        ],
+        "closingTitle": "Own the asset; we’ll mind it."
+      },
+      "currency-services": {
+        "pointsOver": "How we work",
+        "pointsTitle": "Move funds to settle, with guidance.",
+        "points": [
+          { "title": "Timing", "body": "We flag when to move and when to wait, so the rate works for you." },
+          { "title": "Counterparties", "body": "We route through regulated partners — never around them." },
+          { "title": "Settlement", "body": "Funds where they need to be, when the transaction needs them." }
+        ],
+        "closingTitle": "Cross-border, without the friction."
+      },
+      "sell-instantly": {
+        "pointsOver": "How it works",
+        "pointsTitle": "A timely sale, on clear terms.",
+        "points": [
+          { "title": "Qualify", "body": "We assess whether your property fits the programme — honestly, up front." },
+          { "title": "Price", "body": "A fair, evidence-based offer, with the basis shown." },
+          { "title": "Close", "body": "A defined timeline, so you can plan around the proceeds." }
+        ],
+        "closingTitle": "See if your property qualifies.",
+        "closingBody": "Tell us about the property; we’ll tell you plainly."
+      }
+    }
   },
   "whoWeAre": {
     "metaTitle": "Who We Are — Edingrad",

@@ -667,6 +667,9 @@ button,a{touch-action:manipulation}
 .cta-band{background:#000;color:#fff;padding:clamp(56px,8vw,104px) 0}
 .cta-band .display{color:#fff;font-size:clamp(2rem,4vw,3.2rem);max-width:18ch}
 .cta-band .lead{color:#c6c6c6;margin:18px 0 32px;max-width:48ch}
+.cta-band .site-hero-actions{margin-top:0}
+.cta-band .btn-ghost{border-color:#525252;color:#fff}
+.cta-band .btn-ghost:hover{border-color:#8d8d8d;background:#1a1a1a}
 
 /* footer (generic `footer` rule above already sets the dark bg + padding) */
 .site-foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:28px}

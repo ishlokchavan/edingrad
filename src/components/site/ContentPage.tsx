@@ -8,13 +8,29 @@ interface Point {
   body: string;
 }
 
-/** A "Who We Help" audience page: hero (from `routes`) + how-we-help points +
- *  closing CTA. Extended copy lives in `whoWeHelp.audiences.<slug>`. */
-export async function AudiencePage({ slug, locale }: { slug: string; locale: string }) {
+/**
+ * Generic content page for hub subpages (Who We Help audiences, What We Do
+ * services): hero (from `routes.<slug>`) + a points grid + closing CTA band.
+ * Extended copy lives at `<contentNamespace>.<slug>`.
+ */
+export async function ContentPage({
+  slug,
+  locale,
+  contentNamespace,
+  browse = false,
+}: {
+  slug: string;
+  locale: string;
+  /** e.g. "whoWeHelp.audiences" or "whatWeDo.services" */
+  contentNamespace: string;
+  /** show a secondary "Browse properties" CTA */
+  browse?: boolean;
+}) {
   setRequestLocale(locale);
   const tr = await getTranslations('routes');
-  const t = await getTranslations(`whoWeHelp.audiences.${slug}`);
+  const t = await getTranslations(`${contentNamespace}.${slug}`);
   const tc = await getTranslations('getInTouch');
+  const tw = await getTranslations('whatWeDo');
   const points = t.raw('points') as Point[];
 
   return (
@@ -39,10 +55,17 @@ export async function AudiencePage({ slug, locale }: { slug: string; locale: str
       <section className="cta-band">
         <div className="wrap">
           <h2 className="display">{t('closingTitle')}</h2>
-          <p className="lead">{t('closingBody')}</p>
-          <Link href="/get-in-touch" className="btn">
-            {tc('title')} <ArrowRight size={18} />
-          </Link>
+          {t.has('closingBody') && <p className="lead">{t('closingBody')}</p>}
+          <div className="site-hero-actions">
+            <Link href="/get-in-touch" className="btn">
+              {tc('title')} <ArrowRight size={18} />
+            </Link>
+            {browse && (
+              <Link href="/properties" className="btn-ghost">
+                {tw('browseProperties')}
+              </Link>
+            )}
+          </div>
         </div>
       </section>
     </>

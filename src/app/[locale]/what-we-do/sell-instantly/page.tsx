@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { ComingSoon } from '@/components/site/ComingSoon';
+import { ContentPage } from '@/components/site/ContentPage';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'routes' });
@@ -8,5 +8,5 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 }
 
 export default function Page({ params: { locale } }: { params: { locale: string } }) {
-  return <ComingSoon slug="sell-instantly" locale={locale} />;
+  return <ContentPage slug="sell-instantly" locale={locale} contentNamespace="whatWeDo.services" />;
 }
