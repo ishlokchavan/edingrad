@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { PageHero } from './PageHero';
 import { SITE_SECTIONS } from '@/lib/site-nav';
 import { ArrowRight } from '@/components/icons/ui-icons';
+import { heroImage } from '@/lib/page-images';
 
 /** A hub page: its own hero + a grid of cards linking to the real subpages. */
 export async function HubPage({
@@ -21,7 +22,7 @@ export async function HubPage({
 
   return (
     <>
-      <PageHero overline={t('overline')} title={t('title')} lead={t('lead')} />
+      <PageHero overline={t('overline')} title={t('title')} lead={t('lead')} image={heroImage[sectionKey]} />
       <section className="mkt-section">
         <div className="wrap">
           <div className="mkt-grid mkt-grid-3">

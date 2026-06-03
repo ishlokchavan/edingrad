@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/site/PageHero';
 import { CryptoCalculator } from '@/components/site/CryptoCalculator';
 import { fetchCryptoRates } from '@/lib/crypto';
+import { heroImage } from '@/lib/page-images';
 
 export const revalidate = 300;
 
@@ -17,7 +18,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   const data = await fetchCryptoRates();
   return (
     <>
-      <PageHero overline={tr('crypto-exchange.over')} title={tr('crypto-exchange.title')} lead={tr('crypto-exchange.lead')} />
+      <PageHero overline={tr('crypto-exchange.over')} title={tr('crypto-exchange.title')} lead={tr('crypto-exchange.lead')} image={heroImage['crypto-exchange']} />
       <section className="mkt-section">
         <div className="wrap">
           <CryptoCalculator data={data} />

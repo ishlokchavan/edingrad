@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHero } from '@/components/site/PageHero';
 import { LeadForm } from '@/components/site/LeadForm';
+import { heroImage } from '@/lib/page-images';
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'getInTouch' });
@@ -13,7 +14,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   const t = await getTranslations('getInTouch');
   return (
     <>
-      <PageHero overline={t('overline')} title={t('title')} lead={t('lead')} />
+      <PageHero overline={t('overline')} title={t('title')} lead={t('lead')} image={heroImage['get-in-touch']} />
       <section className="mkt-section">
         <div className="wrap form-wrap">
           <LeadForm />

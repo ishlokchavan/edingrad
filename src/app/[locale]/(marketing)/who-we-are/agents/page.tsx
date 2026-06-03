@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/site/PageHero';
 import { listAgents } from '@/lib/agents';
+import { heroImage } from '@/lib/page-images';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,7 +19,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   const agents = await listAgents();
   return (
     <>
-      <PageHero overline={tr('agents.over')} title={tr('agents.title')} lead={tr('agents.lead')} />
+      <PageHero overline={tr('agents.over')} title={tr('agents.title')} lead={tr('agents.lead')} image={heroImage['agents']} />
       <section className="mkt-section">
         <div className="wrap">
           {agents.length === 0 ? (

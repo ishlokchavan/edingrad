@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from './PageHero';
 import { listJobs } from '@/lib/jobs';
+import { heroImage } from '@/lib/page-images';
 
 /** Listing of published jobs under /who-we-are/careers. */
 export async function JobListPage({ locale }: { locale: string }) {
@@ -12,7 +13,7 @@ export async function JobListPage({ locale }: { locale: string }) {
 
   return (
     <>
-      <PageHero overline={tr('careers.over')} title={tr('careers.title')} lead={tr('careers.lead')} />
+      <PageHero overline={tr('careers.over')} title={tr('careers.title')} lead={tr('careers.lead')} image={heroImage['careers']} />
       <section className="mkt-section">
         <div className="wrap">
           {jobs.length === 0 ? (

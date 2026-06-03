@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from './PageHero';
 import { ArrowRight } from '@/components/icons/ui-icons';
+import { heroImage } from '@/lib/page-images';
 
 interface Point {
   title: string;
@@ -29,7 +30,7 @@ export async function ContentPage({
   browse?: boolean;
   /** points grid columns on wide screens */
   cols?: 3 | 4;
-  /** optional full-width image band under the hero */
+  /** hero background image; defaults to the page's mapped image */
   image?: string;
 }) {
   setRequestLocale(locale);
@@ -41,14 +42,12 @@ export async function ContentPage({
 
   return (
     <>
-      <PageHero overline={tr(`${slug}.over`)} title={tr(`${slug}.title`)} lead={tr(`${slug}.lead`)} />
-
-      {image && (
-        <div className="content-image wrap">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt="" />
-        </div>
-      )}
+      <PageHero
+        overline={tr(`${slug}.over`)}
+        title={tr(`${slug}.title`)}
+        lead={tr(`${slug}.lead`)}
+        image={image ?? heroImage[slug]}
+      />
 
       <section className="mkt-section">
         <div className="wrap">

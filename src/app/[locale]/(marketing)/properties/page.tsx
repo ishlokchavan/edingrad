@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { listListings, type ListingFilters } from '@/lib/listings';
 import { ListingCard } from '@/components/site/ListingCard';
+import { PageHero } from '@/components/site/PageHero';
+import { heroImage } from '@/lib/page-images';
 
 export const dynamic = 'force-dynamic';
 
@@ -37,13 +39,7 @@ export default async function Page({
 
   return (
     <>
-      <section className="page-hero">
-        <div className="wrap">
-          <div className="over">{t('overline')}</div>
-          <h1>{t('title')}</h1>
-          <p className="lead">{t('lead')}</p>
-        </div>
-      </section>
+      <PageHero overline={t('overline')} title={t('title')} lead={t('lead')} image={heroImage['properties']} />
 
       <section className="mkt-section">
         <div className="wrap">

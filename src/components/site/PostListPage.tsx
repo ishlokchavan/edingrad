@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from './PageHero';
 import { listPosts, type PostType } from '@/lib/content';
+import { heroImage } from '@/lib/page-images';
 
 /** Listing of published posts of a type, under /who-we-are/<section>. */
 export async function PostListPage({
@@ -21,7 +22,7 @@ export async function PostListPage({
 
   return (
     <>
-      <PageHero overline={tr(`${section}.over`)} title={tr(`${section}.title`)} lead={tr(`${section}.lead`)} />
+      <PageHero overline={tr(`${section}.over`)} title={tr(`${section}.title`)} lead={tr(`${section}.lead`)} image={heroImage[section]} />
       <section className="mkt-section">
         <div className="wrap">
           {posts.length === 0 ? (
