@@ -2,10 +2,9 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from '@/components/icons/ui-icons';
 import { JsonLd } from '@/components/site/JsonLd';
+import { VisualCard } from '@/components/site/VisualCard';
 import { siteUrl } from '@/lib/site';
-
-const HERO_IMAGE =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_373qi3JTSvYmXjqMPJT9idOjFt7/hf_20260603_172728_e89eac88-89ce-4c76-a670-f1c465c00f07_min.webp';
+import { heroImage, sectionImage } from '@/lib/page-images';
 
 export default async function HomePage({
   params: { locale },
@@ -14,6 +13,8 @@ export default async function HomePage({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('home');
+  const tc = await getTranslations('common');
+  const tf = await getTranslations('footer');
 
   const who = [
     { key: 'developers', href: '/who-we-help/developers' },
@@ -22,11 +23,12 @@ export default async function HomePage({
   ] as const;
 
   const what = [
-    { key: 'residential', href: '/what-we-do/residential' },
-    { key: 'commercial', href: '/what-we-do/commercial' },
-    { key: 'offplan', href: '/what-we-do/off-plan' },
-    { key: 'mortgage', href: '/what-we-do/mortgage' },
+    { slug: 'residential', href: '/what-we-do/residential' },
+    { slug: 'commercial', href: '/what-we-do/commercial' },
+    { slug: 'off-plan', href: '/what-we-do/off-plan' },
+    { slug: 'mortgage', href: '/what-we-do/mortgage' },
   ] as const;
+  const tr = await getTranslations('routes');
 
   return (
     <>
@@ -42,7 +44,7 @@ export default async function HomePage({
       />
       <section className="site-hero site-hero--image">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="site-hero-bg" src={HERO_IMAGE} alt="" aria-hidden="true" />
+        <img className="site-hero-bg" src={heroImage['home']} alt="" aria-hidden="true" />
         <div className="wrap site-hero-content">
           <div className="over">{t('overline')}</div>
           <h1 className="display">{t('title')}</h1>
@@ -76,19 +78,30 @@ export default async function HomePage({
         </div>
       </section>
 
+      <section className="image-band image-band-tall">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={heroImage['properties']} alt="" aria-hidden="true" />
+        <div className="image-band-overlay">
+          <div className="wrap">
+            <p className="image-band-quote">{tf('tagline')}</p>
+          </div>
+        </div>
+      </section>
+
       <section className="mkt-section mkt-section-alt">
         <div className="wrap">
           <div className="over">{t('whatOverline')}</div>
           <h2>{t('whatTitle')}</h2>
-          <div className="mkt-grid mkt-grid-4">
-            {what.map(({ key, href }) => (
-              <Link key={key} href={href} className="mkt-card">
-                <span className="mkt-card-title">{t(`what.${key}.title`)}</span>
-                <p>{t(`what.${key}.body`)}</p>
-                <span className="mkt-card-arrow" aria-hidden>
-                  <ArrowRight size={20} />
-                </span>
-              </Link>
+          <div className="visual-grid visual-grid-4">
+            {what.map(({ slug, href }) => (
+              <VisualCard
+                key={slug}
+                href={href}
+                image={heroImage[slug]!}
+                title={tr(`${slug}.title`)}
+                body={tr(`${slug}.lead`)}
+                cta={tc('learnMore')}
+              />
             ))}
           </div>
         </div>

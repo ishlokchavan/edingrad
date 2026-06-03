@@ -4,7 +4,8 @@
     "brand": "Edingrad",
     "brandTagline": "Investment Advisory",
     "comingSoon": "This section is in progress.",
-    "backHome": "Back to home"
+    "backHome": "Back to home",
+    "learnMore": "Learn more"
   },
   "nav": {
     "whoWeHelp": "Who We Help",
@@ -98,6 +99,10 @@
     "title": "What we do",
     "lead": "Advisory across residential, commercial and off-plan, plus the services and tools that surround a transaction.",
     "browseProperties": "Browse properties",
+    "groupAdvisoryOver": "Advisory",
+    "groupAdvisory": "Three markets, read on the numbers.",
+    "groupServicesOver": "Services & tools",
+    "groupServices": "Everything that surrounds the transaction.",
     "services": {
       "residential": {
         "pointsOver": "How we work",
@@ -170,6 +175,8 @@
     "overline": "Who we are",
     "title": "Who we are",
     "lead": "An advisory firm that favours what compounds over what flatters the quarter. Restraint, evidence, and the long view.",
+    "exploreOver": "Explore the firm",
+    "exploreTitle": "Where to read more.",
     "pages": {
       "about": {
         "pointsOver": "How we think",
@@ -276,6 +283,9 @@
     "overline": "Listings",
     "title": "Properties",
     "lead": "Residential, commercial and off-plan opportunities — searched and filtered, judged on the numbers.",
+    "browseOver": "Browse by type",
+    "browseTitle": "Start with what you are looking for.",
+    "allTitle": "All properties",
     "empty": "No properties match. Try widening the filters.",
     "cat": { "residential": "Residential", "commercial": "Commercial", "offplan": "Off-plan" },
     "tx": { "sale": "For sale", "rent": "For rent" },
