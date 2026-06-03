@@ -697,6 +697,10 @@ button,a{touch-action:manipulation}
 .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--accent)}
 .lead-form textarea{resize:vertical;min-height:120px;line-height:1.55}
 .form-err{font-size:.78rem;color:var(--alert-text)}
+.form-hint{font-size:.78rem;color:var(--low)}
+.file-input{padding:10px 12px;font-size:.9rem;cursor:pointer}
+.file-input::file-selector-button{font-family:'Lynx Sans';font-weight:500;font-size:.85rem;border:1px solid var(--line-2);background:var(--raised);color:var(--text);padding:7px 12px;margin-right:12px;cursor:pointer}
+.file-input::file-selector-button:hover{border-color:var(--line-strong)}
 .form-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .form-error{font-size:.85rem;color:var(--alert-text)}
 .form-fine{font-size:.78rem;color:var(--low);max-width:none}

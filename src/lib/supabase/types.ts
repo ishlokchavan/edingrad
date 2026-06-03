@@ -25,6 +25,7 @@ export type Database = {
     Tables: {
       job_applications: {
         Row: {
+          cover_letter_url: string | null
           created_at: string
           cv_url: string | null
           email: string
@@ -35,6 +36,7 @@ export type Database = {
           phone: string | null
         }
         Insert: {
+          cover_letter_url?: string | null
           created_at?: string
           cv_url?: string | null
           email: string
@@ -45,6 +47,7 @@ export type Database = {
           phone?: string | null
         }
         Update: {
+          cover_letter_url?: string | null
           created_at?: string
           cv_url?: string | null
           email?: string

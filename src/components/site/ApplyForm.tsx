@@ -38,6 +38,7 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
     const code = state.errors?.[f];
     return code ? t(`errors.${f}.${code}`) : null;
   };
+  const accept = '.pdf,.doc,.docx';
 
   return (
     <form action={formAction} className="lead-form" noValidate>
@@ -59,7 +60,14 @@ export function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle: string
       </div>
       <div className="form-field">
         <label htmlFor="ap-cv">{t('cv')}</label>
-        <input id="ap-cv" name="cv_url" type="url" placeholder="https://…" />
+        <input id="ap-cv" name="cv" type="file" accept={accept} className="file-input" />
+        <span className="form-hint">{t('fileHint')}</span>
+        {err('cv') && <span className="form-err">{err('cv')}</span>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="ap-cover">{t('coverLetter')}</label>
+        <input id="ap-cover" name="cover_letter" type="file" accept={accept} className="file-input" />
+        {err('coverLetter') && <span className="form-err">{err('coverLetter')}</span>}
       </div>
       <div className="form-field">
         <label htmlFor="ap-msg">{t('message')}</label>

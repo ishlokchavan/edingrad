@@ -6,6 +6,10 @@ const nextConfig = {
   // Server app (not a static export): Vercel builds and runs this as a
   // standard Next.js server, so route handlers, server actions, ISR and the
   // Next image optimiser are all available out of the box.
+  experimental: {
+    // Allow CV + cover-letter uploads through Server Actions (default is 1MB).
+    serverActions: { bodySizeLimit: '12mb' },
+  },
 };
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');

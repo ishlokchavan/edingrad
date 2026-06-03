@@ -236,7 +236,9 @@
       "name": "Your name",
       "email": "Email",
       "phone": "Phone (optional)",
-      "cv": "Link to your CV (optional)",
+      "cv": "Résumé / CV",
+      "coverLetter": "Cover letter (optional)",
+      "fileHint": "PDF or Word, up to 10MB.",
       "message": "Anything we should know? (optional)",
       "submit": "Submit application",
       "sending": "Submitting…",
@@ -245,7 +247,16 @@
       "errors": {
         "save": "Something went wrong. Please try again, or email us directly.",
         "name": { "required": "Please tell us your name." },
-        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." },
+        "cv": {
+          "required": "Please attach your résumé / CV.",
+          "size": "That file is too large (10MB max).",
+          "type": "Please upload a PDF or Word document."
+        },
+        "coverLetter": {
+          "size": "That file is too large (10MB max).",
+          "type": "Please upload a PDF or Word document."
+        }
       }
     }
   },
