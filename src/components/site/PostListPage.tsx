@@ -27,19 +27,23 @@ export async function PostListPage({
           {posts.length === 0 ? (
             <p className="mkt-note">{tc('empty')}</p>
           ) : (
-            <ul className="post-list">
+            <div className="mkt-grid mkt-grid-3 post-grid">
               {posts.map((p) => (
-                <li key={p.slug} className="post-item">
-                  <Link href={`/who-we-are/${section}/${p.slug}`}>
+                <Link key={p.slug} href={`/who-we-are/${section}/${p.slug}`} className="post-card">
+                  <span className={`post-card-cover${p.cover_image ? '' : ' post-card-cover-empty'}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {p.cover_image && <img src={p.cover_image} alt="" loading="lazy" />}
+                  </span>
+                  <span className="post-card-body">
                     {p.published_at && (
-                      <span className="post-meta">{fmt.format(new Date(p.published_at))}</span>
+                      <span className="post-card-meta">{fmt.format(new Date(p.published_at))}</span>
                     )}
-                    <span className="post-title">{p.title}</span>
-                    {p.excerpt && <span className="post-excerpt">{p.excerpt}</span>}
-                  </Link>
-                </li>
+                    <span className="post-card-title">{p.title}</span>
+                    {p.excerpt && <span className="post-card-excerpt">{p.excerpt}</span>}
+                  </span>
+                </Link>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </section>

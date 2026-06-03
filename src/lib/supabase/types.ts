@@ -383,6 +383,50 @@ export type Database = {
           },
         ]
       }
+      post_assets: {
+        Row: {
+          created_at: string
+          id: string
+          kind: string
+          label: string | null
+          mime_type: string | null
+          post_id: string
+          size_bytes: number | null
+          sort_order: number
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kind: string
+          label?: string | null
+          mime_type?: string | null
+          post_id: string
+          size_bytes?: number | null
+          sort_order?: number
+          url: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kind?: string
+          label?: string | null
+          mime_type?: string | null
+          post_id?: string
+          size_bytes?: number | null
+          sort_order?: number
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "post_assets_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           bio: string | null

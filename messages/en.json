@@ -225,7 +225,9 @@
     }
   },
   "content": {
-    "empty": "Nothing published yet. Check back soon."
+    "empty": "Nothing published yet. Check back soon.",
+    "downloads": "Downloads",
+    "download": "Download"
   },
   "routes": {
     "developers": {
