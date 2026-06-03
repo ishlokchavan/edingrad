@@ -41,11 +41,12 @@ export const env = {
   teamInboxEmail: () => required('TEAM_INBOX_EMAIL'),
 } as const;
 
-/** Names of the env vars the app expects, for the health check. */
-export const EXPECTED_ENV = [
-  'NEXT_PUBLIC_SUPABASE_URL',
-  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
-  'SUPABASE_SERVICE_ROLE_KEY',
-  'BREVO_API_KEY',
-  'TEAM_INBOX_EMAIL',
-] as const;
+/** Env vars grouped by service, for the health check. */
+export const ENV_GROUPS = {
+  supabase: [
+    'NEXT_PUBLIC_SUPABASE_URL',
+    'NEXT_PUBLIC_SUPABASE_ANON_KEY',
+    'SUPABASE_SERVICE_ROLE_KEY',
+  ],
+  brevo: ['BREVO_API_KEY', 'TEAM_INBOX_EMAIL'],
+} as const satisfies Record<string, readonly string[]>;
