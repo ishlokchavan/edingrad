@@ -27,7 +27,9 @@ export async function DashboardChrome({
             {canManageContent && <Link href="/dashboard/jobs">Jobs</Link>}
             {canManageListings && <Link href="/dashboard/listings">Listings</Link>}
             {canManageContent && <Link href="/dashboard/applications">Applications</Link>}
-            {profile.role === 'admin' && <Link href="/dashboard/leads">Leads</Link>}
+            {(profile.role === 'admin' || profile.role === 'agent') && (
+              <Link href="/dashboard/leads">Leads</Link>
+            )}
           </nav>
           <div className="dash-user">
             <span className="dash-role">{profile.role}</span>

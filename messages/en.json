@@ -412,9 +412,11 @@
     "soon": "Coming soon",
     "welcome": "Welcome, {name}.",
     "roleIs": "You’re signed in as {role}.",
-    "intro": "Your workspace. Content authoring and listings arrive in the next increments.",
+    "intro": "Your workspace — jump into anything below.",
     "caps": {
       "content": { "title": "Content", "body": "Create and publish Press, Insights and Resources." },
+      "jobs": { "title": "Jobs", "body": "Post and manage open roles." },
+      "applications": { "title": "Applications", "body": "Review job applications and CVs." },
       "listings": { "title": "Listings", "body": "Manage every property listing and bulk imports." },
       "leads": { "title": "Leads", "body": "Review enquiries from across the site." },
       "users": { "title": "Users", "body": "Manage agents and editors, and their access." },

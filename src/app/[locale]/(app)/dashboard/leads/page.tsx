@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'Leads' };
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
   setRequestLocale(locale);
-  await requireRole(['admin']);
+  await requireRole(['admin', 'agent']);
   const leads = await listLeads();
   const fmt = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
 
