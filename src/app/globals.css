@@ -731,6 +731,30 @@ button,a{touch-action:manipulation}
 .dash-signout:hover{border-color:#8d8d8d;background:#1a1a1a}
 .dash-main{padding:clamp(32px,5vw,56px) 0}
 .dash-main h1{font-family:'Palestra',serif;font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.02em;margin:8px 0}
+.dash-nav{display:flex;gap:20px;margin-left:24px;margin-right:auto}
+.dash-nav a{color:#c6c6c6;font-family:'Lynx Sans';font-weight:500;font-size:.88rem}
+.dash-nav a:hover{color:#fff}
+@media(max-width:640px){.dash-nav{display:none}}
+
+/* admin authoring */
+.admin-toolbar{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.admin-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-danger{color:var(--alert-text);border-color:var(--alert-text)}
+.admin-table{width:100%;border-collapse:collapse;min-width:560px}
+.admin-table th,.admin-table td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);font-size:.9rem}
+.admin-table thead th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--low);font-weight:600}
+.admin-link{color:var(--text);font-weight:500}
+.admin-link:hover{color:var(--accent)}
+.admin-muted{color:var(--low);font-variant-numeric:tabular-nums}
+.status-badge{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;padding:3px 8px;font-weight:600;border:1px solid var(--line-2)}
+.status-published{color:var(--ok-text);border-color:var(--ok-text)}
+.status-draft{color:var(--low)}
+.admin-grid{display:grid;grid-template-columns:1fr 300px;gap:var(--grid-gutter);align-items:start}
+@media(max-width:880px){.admin-grid{grid-template-columns:1fr}}
+.admin-side{border:1px solid var(--line);background:var(--surface);padding:20px}
+.cover-uploader{display:flex;flex-direction:column;gap:14px}
+.cover-preview{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);display:block}
+.lead-form textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.5}
 
 /* ---- Content: post cards + article (Press / Insights / Resources) ---- */
 .post-card{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface);overflow:hidden;color:inherit;transition:border-color .25s}
