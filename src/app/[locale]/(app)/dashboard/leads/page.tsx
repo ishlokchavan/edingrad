@@ -37,11 +37,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                 <tr key={l.id}>
                   <td className="admin-muted">{fmt.format(new Date(l.created_at))}</td>
                   <td>{l.type}</td>
-                  <td>{l.name ?? '—'}</td>
-                  <td>{l.email ? <a className="admin-link" href={`mailto:${l.email}`}>{l.email}</a> : '—'}</td>
-                  <td>{l.phone ?? '—'}</td>
-                  <td>{l.audience ?? '—'}</td>
-                  <td className="admin-muted">{l.source_page ?? '—'}</td>
+                  <td>{l.name ?? 'n/a'}</td>
+                  <td>{l.email ? <a className="admin-link" href={`mailto:${l.email}`}>{l.email}</a> : 'n/a'}</td>
+                  <td>{l.phone ?? 'n/a'}</td>
+                  <td>{l.audience ?? 'n/a'}</td>
+                  <td className="admin-muted">{l.source_page ?? 'n/a'}</td>
                 </tr>
               ))}
             </tbody>

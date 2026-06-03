@@ -131,7 +131,7 @@ export function formatPrice(
   transaction: string,
   locale: string,
 ): string {
-  if (price == null) return '—';
+  if (price == null) return 'On request';
   const formatted = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(price);
   return transaction === 'rent' ? `${currency} ${formatted}/year` : `${currency} ${formatted}`;
 }

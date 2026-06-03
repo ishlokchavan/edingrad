@@ -108,15 +108,15 @@ export async function submitApplication(
     const coverLink = coverPath ? linkFor(coverPath) : undefined;
 
     await notifyTeam({
-      subject: `Application — ${jobTitle}`,
+      subject: `Application: ${jobTitle}`,
       htmlContent: `
         <p>New application for <strong>${escapeHtml(jobTitle)}</strong>.</p>
         <ul>
           <li><strong>Name:</strong> ${escapeHtml(name)}</li>
           <li><strong>Email:</strong> ${escapeHtml(email)}</li>
-          <li><strong>Phone:</strong> ${escapeHtml(phone || '—')}</li>
-          <li><strong>CV:</strong> ${cvLink ? `<a href="${cvLink}">Download</a>` : '—'}</li>
-          <li><strong>Cover letter:</strong> ${coverLink ? `<a href="${coverLink}">Download</a>` : '—'}</li>
+          <li><strong>Phone:</strong> ${escapeHtml(phone || 'n/a')}</li>
+          <li><strong>CV:</strong> ${cvLink ? `<a href="${cvLink}">Download</a>` : 'n/a'}</li>
+          <li><strong>Cover letter:</strong> ${coverLink ? `<a href="${coverLink}">Download</a>` : 'n/a'}</li>
         </ul>
         ${message ? `<p style="white-space:pre-wrap">${escapeHtml(message)}</p>` : ''}`,
       replyTo: { email, name },

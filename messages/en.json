@@ -17,11 +17,11 @@
     "close": "Close"
   },
   "home": {
-    "metaTitle": "Edingrad — Investment Advisory",
+    "metaTitle": "Edingrad · Investment Advisory",
     "metaDescription": "Edingrad advises asset managers and private wealth on real estate as an asset class. Diligence first, conviction stated, the long view held.",
     "overline": "Investment advisory · Dubai",
     "title": "Property, advised like a portfolio.",
-    "lead": "Edingrad advises asset managers and private wealth on real estate as an asset class — diligence first, conviction stated, the long view held.",
+    "lead": "Edingrad advises asset managers and private wealth on real estate as an asset class. Diligence first, conviction stated, the long view held.",
     "ctaPrimary": "Speak to an expert",
     "ctaSecondary": "Browse properties",
     "whoOverline": "Who we help",
@@ -33,7 +33,7 @@
       },
       "assetManagement": {
         "title": "Asset management",
-        "body": "Institutional diligence on acquisitions, holds and exits — traceable to a method, sized to your mandate."
+        "body": "Institutional diligence on acquisitions, holds and exits, traceable to a method and sized to your mandate."
       },
       "privateWealth": {
         "title": "Private wealth",
@@ -53,16 +53,16 @@
     "ctaButton": "Speak to an expert"
   },
   "whoWeHelp": {
-    "metaTitle": "Who We Help — Edingrad",
+    "metaTitle": "Who We Help · Edingrad",
     "overline": "Who we help",
     "title": "Who we help",
-    "lead": "Edingrad works with developers, asset managers and private clients — each served by the same standard of diligence, in the register they need.",
+    "lead": "Edingrad works with developers, asset managers and private clients. Each is served by the same standard of diligence, in the register they need.",
     "audiences": {
       "developers": {
         "pointsOver": "How we help",
         "pointsTitle": "From launch strategy to absorption.",
         "points": [
-          { "title": "Pricing with evidence", "body": "We price against comparable absorption and real demand, not aspiration — so launch pricing holds." },
+          { "title": "Pricing with evidence", "body": "We price against comparable absorption and real demand, not aspiration, so launch pricing holds." },
           { "title": "Positioning that lands", "body": "We define who each unit is for and why, then brief the channels that actually reach them." },
           { "title": "Absorption, watched", "body": "We track take-up against plan and call the adjustment early, before it costs a quarter." }
         ],
@@ -74,7 +74,7 @@
         "pointsTitle": "Diligence that survives the investment committee.",
         "points": [
           { "title": "Underwriting", "body": "Cash-flow models built on verifiable inputs, with the assumptions stated and the downside named." },
-          { "title": "Hold or exit", "body": "A clear read on whether an asset still earns its place — reviewed on a schedule, not a whim." },
+          { "title": "Hold or exit", "body": "A clear read on whether an asset still earns its place, reviewed on a schedule, not a whim." },
           { "title": "Reporting", "body": "Plain, periodic reporting that leads with the finding and shows the method." }
         ],
         "closingTitle": "Allocate where capital compounds.",
@@ -84,7 +84,7 @@
         "pointsOver": "How we help",
         "pointsTitle": "One reader, one decision at a time.",
         "points": [
-          { "title": "Acquisition", "body": "We find and vet what fits your objective — not what is easiest to place." },
+          { "title": "Acquisition", "body": "We find and vet what fits your objective, not what is easiest to place." },
           { "title": "Stewardship", "body": "Tenancy, financing and timing, managed with discretion and reported to you directly." },
           { "title": "The exit", "body": "We say when to sell, and why, before the market makes the decision for you." }
         ],
@@ -94,7 +94,7 @@
     }
   },
   "whatWeDo": {
-    "metaTitle": "What We Do — Edingrad",
+    "metaTitle": "What We Do · Edingrad",
     "overline": "What we do",
     "title": "What we do",
     "lead": "Advisory across residential, commercial and off-plan, plus the services and tools that surround a transaction.",
@@ -108,7 +108,7 @@
         "pointsOver": "How we work",
         "pointsTitle": "Homes, read as assets.",
         "points": [
-          { "title": "Yield, not gloss", "body": "We evaluate on net yield, tenure and the quality of the tenant — not the show-home finish." },
+          { "title": "Yield, not gloss", "body": "We evaluate on net yield, tenure and the quality of the tenant, not the show-home finish." },
           { "title": "The right hold", "body": "We match the unit to your horizon, and say when a sale beats a renewal." },
           { "title": "End to end", "body": "Acquisition, financing and handover, coordinated so nothing slips." }
         ],
@@ -123,14 +123,14 @@
           { "title": "Expiry and risk", "body": "We map lease expiries and re-letting risk, so the hold carries no surprises." },
           { "title": "Repositioning", "body": "Where there is upside in use or tenant mix, we name it and cost it." }
         ],
-        "closingTitle": "Office, retail or industrial — judged on the numbers.",
+        "closingTitle": "Office, retail or industrial, judged on the numbers.",
         "closingBody": "Or browse what is on the market today."
       },
       "off-plan": {
         "pointsOver": "How we work",
         "pointsTitle": "Pre-completion, priced honestly.",
         "points": [
-          { "title": "Developer diligence", "body": "Track record, delivery history and balance sheet — checked before the brochure." },
+          { "title": "Developer diligence", "body": "Track record, delivery history and balance sheet, checked before the brochure." },
           { "title": "Timeline risk", "body": "We weigh completion risk and what a slip does to your return." },
           { "title": "The real price", "body": "Payment plans flatter headline prices. We compute what you actually pay." }
         ],
@@ -143,7 +143,7 @@
         "points": [
           { "title": "Tenancy", "body": "Vetting, renewals and arrears handled so occupancy holds and disputes don’t." },
           { "title": "Maintenance", "body": "Planned upkeep that protects the asset’s value, not just its appearance." },
-          { "title": "Reporting", "body": "Clear statements on income, cost and condition — on a schedule you can rely on." }
+          { "title": "Reporting", "body": "Clear statements on income, cost and condition, on a schedule you can rely on." }
         ],
         "closingTitle": "Own the asset; we’ll mind it."
       },
@@ -152,7 +152,7 @@
         "pointsTitle": "Move funds to settle, with guidance.",
         "points": [
           { "title": "Timing", "body": "We flag when to move and when to wait, so the rate works for you." },
-          { "title": "Counterparties", "body": "We route through regulated partners — never around them." },
+          { "title": "Counterparties", "body": "We route through regulated partners, never around them." },
           { "title": "Settlement", "body": "Funds where they need to be, when the transaction needs them." }
         ],
         "closingTitle": "Cross-border, without the friction."
@@ -161,7 +161,7 @@
         "pointsOver": "How it works",
         "pointsTitle": "A timely sale, on clear terms.",
         "points": [
-          { "title": "Qualify", "body": "We assess whether your property fits the programme — honestly, up front." },
+          { "title": "Qualify", "body": "We assess whether your property fits the programme, honestly and up front." },
           { "title": "Price", "body": "A fair, evidence-based offer, with the basis shown." },
           { "title": "Close", "body": "A defined timeline, so you can plan around the proceeds." }
         ],
@@ -171,7 +171,7 @@
     }
   },
   "whoWeAre": {
-    "metaTitle": "Who We Are — Edingrad",
+    "metaTitle": "Who We Are · Edingrad",
     "overline": "Who we are",
     "title": "Who we are",
     "lead": "An advisory firm that favours what compounds over what flatters the quarter. Restraint, evidence, and the long view.",
@@ -182,7 +182,7 @@
         "pointsOver": "How we think",
         "pointsTitle": "Four principles, applied to every decision.",
         "points": [
-          { "title": "Carefully considered", "body": "Before we act, we weigh whether a thing is essential — and how completely we are prepared to see it through." },
+          { "title": "Carefully considered", "body": "Before we act, we weigh whether a thing is essential, and how completely we are prepared to see it through." },
           { "title": "Quietly confident", "body": "Authority is shown through restraint, not volume. We say it plainly, without hedging or hype." },
           { "title": "Clearly communicated", "body": "Everything we publish serves comprehension. If it cannot be explained plainly, it is not ready." },
           { "title": "Built to endure", "body": "We favour what compounds over what flatters the quarter, and hold to work that still looks sound a decade on." }
@@ -205,7 +205,7 @@
     "youReceive": "You receive (indicative)",
     "approxUsd": "Approx. USD",
     "rateLabel": "Rate",
-    "stale": "rates temporarily unavailable — indicative figures shown",
+    "stale": "rates temporarily unavailable; indicative figures shown",
     "rateNote": "1 {asset} ≈ {rate} · {spread}% spread applied",
     "fxNote": "EUR and USD are settled at the prevailing rate at the time of the transaction.",
     "methods": {
@@ -279,10 +279,10 @@
     "disclaimer": "This calculator is provided for illustration only and does not constitute a mortgage offer, financial advice, or a guarantee of costs. Fees vary by lender, property and transaction. Confirm all figures with your bank and conveyancer before committing."
   },
   "properties": {
-    "metaTitle": "Properties — Edingrad",
+    "metaTitle": "Properties · Edingrad",
     "overline": "Listings",
     "title": "Properties",
-    "lead": "Residential, commercial and off-plan opportunities — searched and filtered, judged on the numbers.",
+    "lead": "Residential, commercial and off-plan opportunities, searched and filtered, judged on the numbers.",
     "browseOver": "Browse by type",
     "browseTitle": "Start with what you are looking for.",
     "allTitle": "All properties",
@@ -335,10 +335,10 @@
     }
   },
   "getInTouch": {
-    "metaTitle": "Get in touch — Edingrad",
+    "metaTitle": "Get in touch · Edingrad",
     "overline": "Get in touch",
     "title": "Speak to an expert",
-    "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether — and how — we can help.",
+    "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether, and how, we can help.",
     "form": {
       "name": "Your name",
       "namePh": "Jane Doe",
@@ -362,7 +362,7 @@
       },
       "fine": "We reply to every serious enquiry. Your details are used only to respond.",
       "successTitle": "Thank you.",
-      "successBody": "We have your note and will reply with a plain read on whether — and how — we can help.",
+      "successBody": "We have your note and will reply with a plain read on whether, and how, we can help.",
       "errors": {
         "check": "Please check the highlighted fields.",
         "save": "Something went wrong saving your message. Please try again, or email us directly.",
@@ -427,7 +427,7 @@
     "soon": "Coming soon",
     "welcome": "Welcome, {name}.",
     "roleIs": "You’re signed in as {role}.",
-    "intro": "Your workspace — jump into anything below.",
+    "intro": "Your workspace. Jump into anything below.",
     "caps": {
       "content": { "title": "Content", "body": "Create and publish Press, Insights and Resources." },
       "jobs": { "title": "Jobs", "body": "Post and manage open roles." },
@@ -448,7 +448,7 @@
     "asset-management": {
       "over": "Who we help",
       "title": "Asset management",
-      "lead": "Institutional diligence on acquisitions, holds and exits — traceable to a method, sized to your mandate."
+      "lead": "Institutional diligence on acquisitions, holds and exits, traceable to a method and sized to your mandate."
     },
     "private-wealth": {
       "over": "Who we help",
@@ -463,7 +463,7 @@
     "commercial": {
       "over": "What we do",
       "title": "Commercial",
-      "lead": "Offices, retail and industrial, read as cash flow and covenant — not floor plates."
+      "lead": "Offices, retail and industrial, read as cash flow and covenant, not floor plates."
     },
     "off-plan": {
       "over": "What we do",

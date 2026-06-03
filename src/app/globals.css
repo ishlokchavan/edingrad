@@ -614,22 +614,22 @@ button,a{touch-action:manipulation}
 .btn-ghost:hover{border-color:var(--line-strong);background:var(--hover)}
 
 /* header (dark in both themes) */
-.site-header{position:sticky;top:0;z-index:120;background:#161616;border-bottom:1px solid #393939}
+.site-header{position:sticky;top:0;z-index:120;background:var(--chrome);border-bottom:1px solid var(--line)}
 .site-header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
-.site-logo{display:inline-flex;align-items:center;gap:10px;color:#fff}
+.site-logo{display:inline-flex;align-items:center;gap:10px;color:var(--text)}
 .site-logo-mark{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);flex:none}
-.site-logo-word{font-family:'Palestra',serif;font-weight:700;font-size:1.5rem;letter-spacing:-.01em;color:#fff}
+.site-logo-word{font-family:'Palestra',serif;font-weight:700;font-size:1.5rem;letter-spacing:-.01em;color:var(--text)}
 .site-nav{display:flex;align-items:center;gap:28px;margin-left:auto}
-.site-nav-link{color:#c6c6c6;font-family:'Lynx Sans';font-weight:500;font-size:.92rem;transition:color .2s}
-.site-nav-link:hover{color:#fff}
+.site-nav-link{color:var(--mid);font-family:'Lynx Sans';font-weight:500;font-size:.92rem;transition:color .2s}
+.site-nav-link:hover{color:var(--text)}
 .site-header-actions{display:flex;align-items:center;gap:12px}
 .site-cta{padding:9px 16px;font-size:.88rem}
-.site-header .hbtn{color:#c6c6c6}
-.site-header .hbtn:hover{color:#fff;background:#2c2c2c}
+.site-header .hbtn{color:var(--mid)}
+.site-header .hbtn:hover{color:var(--text);background:var(--hover)}
 .site-burger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
-.site-burger span{display:block;width:20px;height:2px;background:#c6c6c6}
-.site-nav-mobile{display:flex;flex-direction:column;padding:8px var(--page-margin) 18px;background:#161616;border-bottom:1px solid #393939}
-.site-nav-mobile a{color:#c6c6c6;padding:11px 0;font-family:'Lynx Sans';font-weight:500}
+.site-burger span{display:block;width:20px;height:2px;background:var(--mid)}
+.site-nav-mobile{display:flex;flex-direction:column;padding:8px var(--page-margin) 18px;background:var(--chrome);border-bottom:1px solid var(--line)}
+.site-nav-mobile a{color:var(--mid);padding:11px 0;font-family:'Lynx Sans';font-weight:500}
 .site-nav-mobile a.btn{color:#fff;justify-content:center;margin-top:10px}
 @media(max-width:860px){.site-nav{display:none}.site-cta{display:none}.site-burger{display:flex}}
 @media(min-width:861px){.site-nav-mobile{display:none}}

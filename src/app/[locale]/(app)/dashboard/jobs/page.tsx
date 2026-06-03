@@ -46,7 +46,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                       {j.title}
                     </Link>
                   </td>
-                  <td>{j.department ?? '—'}</td>
+                  <td>{j.department ?? 'n/a'}</td>
                   <td>
                     <span className={`status-badge status-${j.status}`}>{j.status}</span>
                   </td>

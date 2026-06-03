@@ -60,13 +60,13 @@ export async function submitListingEnquiry(
 
   try {
     await notifyTeam({
-      subject: `Listing enquiry — ${listingTitle}`,
+      subject: `Listing enquiry: ${listingTitle}`,
       htmlContent: `
         <p>New enquiry on <strong>${escapeHtml(listingTitle)}</strong>.</p>
         <ul>
           <li><strong>Name:</strong> ${escapeHtml(name)}</li>
           <li><strong>Email:</strong> ${escapeHtml(email)}</li>
-          <li><strong>Phone:</strong> ${escapeHtml(phone || '—')}</li>
+          <li><strong>Phone:</strong> ${escapeHtml(phone || 'n/a')}</li>
         </ul>
         ${message ? `<p style="white-space:pre-wrap">${escapeHtml(message)}</p>` : ''}`,
       replyTo: { email, name },

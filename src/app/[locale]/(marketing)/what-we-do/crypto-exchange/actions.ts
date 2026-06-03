@@ -69,7 +69,7 @@ export async function submitCryptoEnquiry(
         <ul>
           <li><strong>Name:</strong> ${escapeHtml(name)}</li>
           <li><strong>Email:</strong> ${escapeHtml(email)}</li>
-          <li><strong>Phone:</strong> ${escapeHtml(phone || '—')}</li>
+          <li><strong>Phone:</strong> ${escapeHtml(phone || 'n/a')}</li>
           <li><strong>Give:</strong> ${escapeHtml(String(payload.amount))} ${escapeHtml(payload.asset)}</li>
           <li><strong>Receive via:</strong> ${escapeHtml(payload.receiveMethod)}</li>
           <li><strong>Indicative value:</strong> ${aed(payload.indicativeAed)}</li>

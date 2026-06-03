@@ -82,8 +82,8 @@ export async function submitLead(
         <ul>
           <li><strong>Name:</strong> ${escapeHtml(name)}</li>
           <li><strong>Email:</strong> ${escapeHtml(email)}</li>
-          <li><strong>Phone:</strong> ${escapeHtml(phone || '—')}</li>
-          <li><strong>Audience:</strong> ${escapeHtml(audience ?? '—')}</li>
+          <li><strong>Phone:</strong> ${escapeHtml(phone || 'n/a')}</li>
+          <li><strong>Audience:</strong> ${escapeHtml(audience ?? 'n/a')}</li>
         </ul>
         <p style="white-space:pre-wrap">${escapeHtml(message)}</p>`,
       replyTo: { email, name },

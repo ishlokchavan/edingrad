@@ -38,7 +38,7 @@ export function NewPostForm() {
         <input id="np-title" name="title" type="text" />
       </div>
       <div className="form-field">
-        <label htmlFor="np-slug">Slug (optional — generated from title)</label>
+        <label htmlFor="np-slug">Slug (optional, generated from title)</label>
         <input id="np-slug" name="slug" type="text" placeholder="auto" />
       </div>
       <div className="form-actions">

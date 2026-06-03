@@ -41,7 +41,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                 <tr key={l.id}>
                   <td><Link href={`/dashboard/listings/${l.id}`} className="admin-link">{l.title}</Link></td>
                   <td>{l.category} · {l.transaction_type}</td>
-                  <td className="admin-muted">{l.price != null ? `${l.currency} ${price.format(l.price)}` : '—'}</td>
+                  <td className="admin-muted">{l.price != null ? `${l.currency} ${price.format(l.price)}` : 'n/a'}</td>
                   <td><span className={`status-badge status-${l.status}`}>{l.status}</span></td>
                   <td className="admin-muted">{fmt.format(new Date(l.updated_at))}</td>
                 </tr>

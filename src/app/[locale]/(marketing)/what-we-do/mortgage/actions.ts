@@ -70,7 +70,7 @@ export async function submitMortgageEnquiry(
         <ul>
           <li><strong>Name:</strong> ${escapeHtml(name)}</li>
           <li><strong>Email:</strong> ${escapeHtml(email)}</li>
-          <li><strong>Phone:</strong> ${escapeHtml(phone || '—')}</li>
+          <li><strong>Phone:</strong> ${escapeHtml(phone || 'n/a')}</li>
           <li><strong>Property price:</strong> ${fmt(payload.price)}</li>
           <li><strong>Deposit:</strong> ${fmt(payload.deposit)}</li>
           <li><strong>Term / rate:</strong> ${payload.years} yr @ ${payload.rate}%</li>

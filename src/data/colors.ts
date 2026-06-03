@@ -239,7 +239,7 @@ export interface ColorFamily {
 /** Core families, each carrying blue, built for combination. */
 export const CORE_FAMILIES: ColorFamily[] = [
   {
-    label: 'Cool family — 4-colour',
+    label: 'Cool family, 4-colour',
     chips: [
       { name: 'Blue 60', hex: '#0f62fe' },
       { name: 'Cyan 50', hex: '#1192e8' },
@@ -248,7 +248,7 @@ export const CORE_FAMILIES: ColorFamily[] = [
     ],
   },
   {
-    label: 'Warm family — 4-colour',
+    label: 'Warm family, 4-colour',
     chips: [
       { name: 'Blue 60', hex: '#0f62fe' },
       { name: 'Purple 60', hex: '#8a3ffc' },

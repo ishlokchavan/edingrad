@@ -34,7 +34,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               {apps.map((a) => (
                 <tr key={a.id}>
                   <td className="admin-muted">{fmt.format(new Date(a.created_at))}</td>
-                  <td>{a.jobTitle ?? '—'}</td>
+                  <td>{a.jobTitle ?? 'n/a'}</td>
                   <td>{a.name}</td>
                   <td>
                     <a className="admin-link" href={`mailto:${a.email}`}>{a.email}</a>
@@ -43,7 +43,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                     {a.cvUrl ? (
                       <a className="admin-link" href={a.cvUrl} target="_blank" rel="noopener">CV</a>
                     ) : (
-                      '—'
+                      'n/a'
                     )}
                     {a.coverUrl && (
                       <>

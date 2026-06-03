@@ -29,7 +29,7 @@ export default async function Page({
   const listing = await getListing(slug);
   if (!listing) notFound();
 
-  const fmtNum = (n: number | null) => (n == null ? '—' : new Intl.NumberFormat(locale).format(n));
+  const fmtNum = (n: number | null) => (n == null ? 'n/a' : new Intl.NumberFormat(locale).format(n));
   const specs: { label: string; value: string }[] = [
     { label: t('specs.category'), value: t(`cat.${listing.category}`) },
     { label: t('specs.transaction'), value: t(`tx.${listing.transaction_type}`) },
