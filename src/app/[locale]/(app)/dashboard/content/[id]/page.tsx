@@ -3,10 +3,11 @@ import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { requireRole } from '@/lib/auth';
-import { getPostById } from '@/lib/admin-posts';
+import { getPostById, listPostAssets } from '@/lib/admin-posts';
 import { PostEditForm } from '@/components/dashboard/PostEditForm';
 import { CoverUploader } from '@/components/dashboard/CoverUploader';
-import { setPostStatus, deletePost } from '../actions';
+import { GalleryUploader, DownloadUploader } from '@/components/dashboard/AssetUploaders';
+import { setPostStatus, deletePost, removeAsset } from '../actions';
 
 export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'Edit post' };
@@ -22,6 +23,9 @@ export default async function Page({
   await requireRole(['admin', 'editor']);
   const post = await getPostById(id);
   if (!post) notFound();
+  const assets = await listPostAssets(id);
+  const gallery = assets.filter((a) => a.kind === 'image');
+  const downloads = assets.filter((a) => a.kind === 'download');
 
   const published = post.status === 'published';
 
@@ -61,12 +65,45 @@ export default async function Page({
         <aside className="admin-side">
           <h2 className="downloads-h">Cover image</h2>
           <CoverUploader id={post.id} current={post.cover_image} />
-          <p className="form-hint" style={{ marginTop: 20 }}>
-            Gallery &amp; downloads management arrives in the next increment — they already render
-            on the live article when present.
-          </p>
         </aside>
       </div>
+
+      <section className="admin-media">
+        <div className="admin-media-col">
+          <h2 className="downloads-h">Gallery</h2>
+          {gallery.length > 0 && (
+            <div className="asset-thumbs">
+              {gallery.map((g) => (
+                <div key={g.id} className="asset-thumb">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={g.url} alt={g.label ?? ''} />
+                  <form action={removeAsset.bind(null, g.id, post.id)}>
+                    <button type="submit" className="asset-remove" aria-label="Remove image">×</button>
+                  </form>
+                </div>
+              ))}
+            </div>
+          )}
+          <GalleryUploader postId={post.id} />
+        </div>
+
+        <div className="admin-media-col">
+          <h2 className="downloads-h">Downloads</h2>
+          {downloads.length > 0 && (
+            <ul className="asset-downloads">
+              {downloads.map((d) => (
+                <li key={d.id}>
+                  <span>{d.label ?? 'File'}</span>
+                  <form action={removeAsset.bind(null, d.id, post.id)}>
+                    <button type="submit" className="asset-remove" aria-label="Remove download">×</button>
+                  </form>
+                </li>
+              ))}
+            </ul>
+          )}
+          <DownloadUploader postId={post.id} />
+        </div>
+      </section>
     </>
   );
 }

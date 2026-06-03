@@ -97,6 +97,117 @@ export async function deletePost(id: string) {
   redirect('/dashboard/content');
 }
 
+const MEDIA_MAX = 12 * 1024 * 1024;
+const DOC_TYPES = new Set([
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+]);
+
+function storagePathFromPublicUrl(url: string): string | null {
+  const marker = '/object/public/media/';
+  const i = url.indexOf(marker);
+  return i === -1 ? null : url.slice(i + marker.length);
+}
+
+async function uploadToMedia(file: File, kind: string, postId: string): Promise<string> {
+  const admin = createSupabaseAdminClient();
+  const name = file.name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(-60);
+  const path = `posts/${postId}/${kind}-${crypto.randomUUID()}-${name}`;
+  const { error } = await admin.storage
+    .from('media')
+    .upload(path, file, { contentType: file.type, upsert: false });
+  if (error) throw error;
+  return admin.storage.from('media').getPublicUrl(path).data.publicUrl;
+}
+
+async function nextSortOrder(postId: string, kind: string): Promise<number> {
+  const supabase = createSupabaseServerClient();
+  const { data } = await supabase
+    .from('post_assets')
+    .select('sort_order')
+    .eq('post_id', postId)
+    .eq('kind', kind)
+    .order('sort_order', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  return (data?.sort_order ?? 0) + 1;
+}
+
+/** Add a gallery image to a post. */
+export async function addGalleryImage(postId: string, _prev: ActionState, formData: FormData): Promise<ActionState> {
+  await requireRole(['admin', 'editor']);
+  const file = formData.get('file') as File | null;
+  if (!file || file.size === 0) return { error: 'Choose an image.' };
+  if (!file.type.startsWith('image/')) return { error: 'That file is not an image.' };
+  if (file.size > MEDIA_MAX) return { error: 'Image is too large (12MB max).' };
+
+  try {
+    const url = await uploadToMedia(file, 'gallery', postId);
+    const supabase = createSupabaseServerClient();
+    const { error } = await supabase.from('post_assets').insert({
+      post_id: postId,
+      kind: 'image',
+      url,
+      sort_order: await nextSortOrder(postId, 'image'),
+    });
+    if (error) throw error;
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : 'Upload failed.' };
+  }
+  revalidatePath('/dashboard/content');
+  return { ok: true };
+}
+
+/** Add a downloadable file (PDF/DOC) to a post. */
+export async function addDownload(postId: string, _prev: ActionState, formData: FormData): Promise<ActionState> {
+  await requireRole(['admin', 'editor']);
+  const file = formData.get('file') as File | null;
+  const label = String(formData.get('label') ?? '').trim();
+  if (!file || file.size === 0) return { error: 'Choose a file.' };
+  if (!DOC_TYPES.has(file.type)) return { error: 'Upload a PDF or Word document.' };
+  if (file.size > MEDIA_MAX) return { error: 'File is too large (12MB max).' };
+
+  try {
+    const url = await uploadToMedia(file, 'download', postId);
+    const supabase = createSupabaseServerClient();
+    const { error } = await supabase.from('post_assets').insert({
+      post_id: postId,
+      kind: 'download',
+      url,
+      label: label || file.name,
+      mime_type: file.type,
+      size_bytes: file.size,
+      sort_order: await nextSortOrder(postId, 'download'),
+    });
+    if (error) throw error;
+  } catch (err) {
+    return { error: err instanceof Error ? err.message : 'Upload failed.' };
+  }
+  revalidatePath('/dashboard/content');
+  return { ok: true };
+}
+
+/** Remove an asset (DB row + best-effort storage object). */
+export async function removeAsset(assetId: string, postId: string) {
+  await requireRole(['admin', 'editor']);
+  const supabase = createSupabaseServerClient();
+  const { data: asset } = await supabase
+    .from('post_assets')
+    .select('url')
+    .eq('id', assetId)
+    .maybeSingle();
+
+  await supabase.from('post_assets').delete().eq('id', assetId);
+
+  const path = asset?.url ? storagePathFromPublicUrl(asset.url) : null;
+  if (path) {
+    await createSupabaseAdminClient().storage.from('media').remove([path]);
+  }
+  revalidatePath('/dashboard/content');
+  redirect(`/dashboard/content/${postId}`);
+}
+
 /** Upload a cover image to the public `media` bucket and set it on the post. */
 export async function uploadCover(_prev: ActionState, formData: FormData): Promise<ActionState> {
   await requireRole(['admin', 'editor']);

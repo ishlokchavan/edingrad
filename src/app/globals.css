@@ -754,6 +754,18 @@ button,a{touch-action:manipulation}
 .admin-side{border:1px solid var(--line);background:var(--surface);padding:20px}
 .cover-uploader{display:flex;flex-direction:column;gap:14px}
 .cover-preview{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);display:block}
+.admin-media{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:760px){.admin-media{grid-template-columns:1fr}}
+.asset-uploader{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.asset-uploader input[type=text]{background:var(--field);border:1px solid var(--line-2);padding:10px 12px;font-family:'Lynx Sans';font-size:.9rem;color:var(--text)}
+.asset-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:8px}
+.asset-thumb{position:relative}
+.asset-thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);display:block}
+.asset-downloads{list-style:none;padding:0;margin:0 0 8px}
+.asset-downloads li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);font-size:.9rem;margin-bottom:8px}
+.asset-remove{width:26px;height:26px;border:1px solid var(--line-2);background:var(--surface);color:var(--alert-text);cursor:pointer;font-size:1rem;line-height:1;flex:none}
+.asset-remove:hover{border-color:var(--alert-text)}
+.asset-thumb .asset-remove{position:absolute;top:6px;right:6px;background:rgba(22,22,22,.7);color:#fff;border-color:transparent}
 .lead-form textarea.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.5}
 
 /* ---- Content: post cards + article (Press / Insights / Resources) ---- */

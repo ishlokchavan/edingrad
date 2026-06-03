@@ -32,6 +32,27 @@ export interface AdminPost extends AdminPostRow {
   seo_description: string | null;
 }
 
+export interface AdminAsset {
+  id: string;
+  kind: string;
+  url: string;
+  label: string | null;
+  mime_type: string | null;
+  size_bytes: number | null;
+  sort_order: number;
+}
+
+export async function listPostAssets(postId: string): Promise<AdminAsset[]> {
+  const supabase = createSupabaseServerClient();
+  const { data, error } = await supabase
+    .from('post_assets')
+    .select('id,kind,url,label,mime_type,size_bytes,sort_order')
+    .eq('post_id', postId)
+    .order('sort_order', { ascending: true });
+  if (error) throw error;
+  return data ?? [];
+}
+
 export async function getPostById(id: string): Promise<AdminPost | null> {
   const supabase = createSupabaseServerClient();
   const { data, error } = await supabase
