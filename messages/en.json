@@ -1,0 +1,182 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "brand": "Edingrad",
+    "brandTagline": "Investment Advisory",
+    "comingSoon": "This section is in progress.",
+    "backHome": "Back to home"
+  },
+  "nav": {
+    "whoWeHelp": "Who We Help",
+    "whatWeDo": "What We Do",
+    "whoWeAre": "Who We Are",
+    "properties": "Properties",
+    "getInTouch": "Get in touch",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "home": {
+    "metaTitle": "Edingrad — Investment Advisory",
+    "metaDescription": "Edingrad advises asset managers and private wealth on real estate as an asset class. Diligence first, conviction stated, the long view held.",
+    "overline": "Investment advisory · Dubai",
+    "title": "Property, advised like a portfolio.",
+    "lead": "Edingrad advises asset managers and private wealth on real estate as an asset class — diligence first, conviction stated, the long view held.",
+    "ctaPrimary": "Speak to an expert",
+    "ctaSecondary": "Browse properties",
+    "whoOverline": "Who we help",
+    "whoTitle": "Built for three kinds of decision-maker.",
+    "who": {
+      "developers": {
+        "title": "Developers",
+        "body": "Position, price and place inventory with an advisor who reads the market as capital, not square footage."
+      },
+      "assetManagement": {
+        "title": "Asset management",
+        "body": "Institutional diligence on acquisitions, holds and exits — traceable to a method, sized to your mandate."
+      },
+      "privateWealth": {
+        "title": "Private wealth",
+        "body": "Direct, one-to-one counsel on where to allocate, what to hold, and when the downside is no longer priced in."
+      }
+    },
+    "whatOverline": "What we do",
+    "whatTitle": "Advisory, transactions, and the tools around them.",
+    "what": {
+      "residential": { "title": "Residential", "body": "Homes and income units, evaluated on yield and tenure." },
+      "commercial": { "title": "Commercial", "body": "Offices, retail and industrial, read as cash flow." },
+      "offplan": { "title": "Off-plan", "body": "Pre-completion stock, weighed on developer and timeline." },
+      "mortgage": { "title": "Mortgage", "body": "Cost and repayment, modelled before you commit." }
+    },
+    "ctaTitle": "Start with the question, not the listing.",
+    "ctaBody": "Tell us the mandate. We will tell you, plainly, whether we can help.",
+    "ctaButton": "Speak to an expert"
+  },
+  "whoWeHelp": {
+    "metaTitle": "Who We Help — Edingrad",
+    "overline": "Who we help",
+    "title": "Who we help",
+    "lead": "Edingrad works with developers, asset managers and private clients — each served by the same standard of diligence, in the register they need."
+  },
+  "whatWeDo": {
+    "metaTitle": "What We Do — Edingrad",
+    "overline": "What we do",
+    "title": "What we do",
+    "lead": "Advisory across residential, commercial and off-plan, plus the services and tools that surround a transaction."
+  },
+  "whoWeAre": {
+    "metaTitle": "Who We Are — Edingrad",
+    "overline": "Who we are",
+    "title": "Who we are",
+    "lead": "An advisory firm that favours what compounds over what flatters the quarter. Restraint, evidence, and the long view."
+  },
+  "properties": {
+    "metaTitle": "Properties — Edingrad",
+    "overline": "Listings",
+    "title": "Properties",
+    "lead": "A focused portal for residential, commercial and off-plan opportunities. Search and filter are on the way."
+  },
+  "getInTouch": {
+    "metaTitle": "Get in touch — Edingrad",
+    "overline": "Get in touch",
+    "title": "Speak to an expert",
+    "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether — and how — we can help."
+  },
+  "routes": {
+    "developers": {
+      "over": "Who we help",
+      "title": "Developers",
+      "lead": "Position, price and place inventory with an advisor who reads the market as capital, not square footage."
+    },
+    "asset-management": {
+      "over": "Who we help",
+      "title": "Asset management",
+      "lead": "Institutional diligence on acquisitions, holds and exits — traceable to a method, sized to your mandate."
+    },
+    "private-wealth": {
+      "over": "Who we help",
+      "title": "Private wealth",
+      "lead": "Direct, one-to-one counsel on where to allocate, what to hold, and when the downside is no longer priced in."
+    },
+    "residential": {
+      "over": "What we do",
+      "title": "Residential",
+      "lead": "Homes and income units, evaluated on yield, tenure and the quality of the hold."
+    },
+    "commercial": {
+      "over": "What we do",
+      "title": "Commercial",
+      "lead": "Offices, retail and industrial, read as cash flow and covenant — not floor plates."
+    },
+    "off-plan": {
+      "over": "What we do",
+      "title": "Off-plan",
+      "lead": "Pre-completion stock, weighed on the developer, the timeline and the price you are actually paying."
+    },
+    "property-management": {
+      "over": "What we do",
+      "title": "Property management",
+      "lead": "Stewardship that protects the asset: tenancy, maintenance and reporting, handled with discretion."
+    },
+    "mortgage": {
+      "over": "What we do",
+      "title": "Mortgage calculator",
+      "lead": "Model the monthly repayment and the full cost of purchase before you commit."
+    },
+    "currency-services": {
+      "over": "What we do",
+      "title": "Currency services",
+      "lead": "Move funds across borders to settle a purchase, with guidance on timing and counterparties."
+    },
+    "crypto-exchange": {
+      "over": "What we do",
+      "title": "Crypto exchange",
+      "lead": "An indicative rate and a routed enquiry to a licensed partner. We advise; we do not execute."
+    },
+    "sell-instantly": {
+      "over": "What we do",
+      "title": "Sell instantly",
+      "lead": "A clear route to a timely sale. See whether your property qualifies."
+    },
+    "about": {
+      "over": "Who we are",
+      "title": "About Edingrad",
+      "lead": "An advisory firm that favours what compounds over what flatters the quarter."
+    },
+    "press": {
+      "over": "Who we are",
+      "title": "Press",
+      "lead": "Announcements and coverage, stated plainly."
+    },
+    "insights": {
+      "over": "Who we are",
+      "title": "Insights",
+      "lead": "Analysis that leads with the finding and shows the method."
+    },
+    "resources": {
+      "over": "Who we are",
+      "title": "Resources",
+      "lead": "Guides and references for owners, buyers and partners."
+    },
+    "agents": {
+      "over": "Who we are",
+      "title": "Agents",
+      "lead": "The people who do the work, and how to reach them."
+    },
+    "careers": {
+      "over": "Who we are",
+      "title": "Careers",
+      "lead": "We hire for judgement and rigour. See where you might fit."
+    }
+  },
+  "footer": {
+    "tagline": "Property, advised like a portfolio.",
+    "colHelp": "Who we help",
+    "colDo": "What we do",
+    "colFirm": "Firm",
+    "about": "About",
+    "insights": "Insights",
+    "careers": "Careers",
+    "rights": "© 2026 Edingrad Real Estate L.L.C",
+    "disclaimer": "Information provided is for illustration and does not constitute investment advice."
+  }
+}
