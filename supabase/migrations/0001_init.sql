@@ -70,26 +70,10 @@ begin
   return new;
 end $$;
 
--- Current user's role, read with SECURITY DEFINER so it bypasses RLS on
--- `profiles` (prevents recursive policy evaluation).
-create or replace function public.user_role(uid uuid)
-returns user_role
-language sql stable security definer set search_path = public as $$
-  select role from public.profiles where user_id = uid
-$$;
-
-create or replace function public.is_admin()
-returns boolean language sql stable as $$
-  select public.user_role(auth.uid()) = 'admin'
-$$;
-
-create or replace function public.is_editor_or_admin()
-returns boolean language sql stable as $$
-  select public.user_role(auth.uid()) in ('admin', 'editor')
-$$;
-
 -- ----------------------------------------------------------------------------
 -- profiles  (1:1 with auth.users)
+-- NOTE: declared before the role-helper functions below, which reference it
+-- (Postgres validates SQL function bodies at creation time).
 -- ----------------------------------------------------------------------------
 create table public.profiles (
   user_id    uuid primary key references auth.users (id) on delete cascade,
@@ -107,6 +91,24 @@ create table public.profiles (
 );
 create trigger profiles_set_updated_at before update on public.profiles
   for each row execute function public.set_updated_at();
+
+-- Role helpers. user_role is SECURITY DEFINER so it bypasses RLS on `profiles`
+-- (prevents recursive policy evaluation).
+create or replace function public.user_role(uid uuid)
+returns user_role
+language sql stable security definer set search_path = public as $$
+  select role from public.profiles where user_id = uid
+$$;
+
+create or replace function public.is_admin()
+returns boolean language sql stable as $$
+  select public.user_role(auth.uid()) = 'admin'
+$$;
+
+create or replace function public.is_editor_or_admin()
+returns boolean language sql stable as $$
+  select public.user_role(auth.uid()) in ('admin', 'editor')
+$$;
 
 -- Auto-create a profile when a new auth user signs up (role: agent, pending
 -- approval). Admins activate / re-role from the dashboard.

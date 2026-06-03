@@ -6,8 +6,13 @@ Database schema and migrations for Edingrad, derived from `docs/build-plan.md`
 ```
 supabase/
 └─ migrations/
-   └─ 0001_init.sql   Enums, tables, indexes, helper functions, and RLS
+   ├─ 0001_init.sql                Enums, tables, indexes, helper functions, RLS
+   └─ 0002_security_hardening.sql  Pin function search_path; lock down trigger fn
 ```
+
+> Both migrations are already applied to the `edingrad` project. The schema was
+> verified live: an anonymous insert into `leads` succeeds while anonymous reads
+> are denied (admin-only), exactly per the RLS design.
 
 ## Applying the schema
 
