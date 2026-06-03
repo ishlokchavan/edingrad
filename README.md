@@ -92,6 +92,29 @@ npm run typecheck  # tsc --noEmit (strict)
 
 ---
 
+## Environment & services
+
+Copy [`.env.example`](./.env.example) to `.env.local` for local dev, and set the
+same keys in Vercel project settings. Secrets are never committed.
+
+| Var | Used by |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase clients (browser + server, RLS-respecting) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Privileged server client (bypasses RLS) — server-only |
+| `BREVO_API_KEY`, `BREVO_SENDER_EMAIL`, `BREVO_SENDER_NAME`, `TEAM_INBOX_EMAIL` | Transactional email |
+
+Foundation modules (build-plan Phase 0):
+
+- `src/lib/env.ts` — typed env contract, read at call time (a missing secret never breaks the build).
+- `src/lib/supabase/{client,server}.ts` — browser, server (cookie/RLS), and admin (service-role) clients.
+- `src/lib/email/brevo.ts` — `sendTransactionalEmail` / `notifyTeam` helpers.
+- `GET /api/health` — confirms the server runtime and reports which env vars are configured (booleans only). Verify the pipeline at `/api/health`.
+
+The database schema lives in [`supabase/migrations/`](./supabase/migrations/);
+apply it per [`supabase/README.md`](./supabase/README.md).
+
+---
+
 ## Deploying to Vercel
 
 A standard Next.js **server app** — Vercel auto-detects the framework (declared in
