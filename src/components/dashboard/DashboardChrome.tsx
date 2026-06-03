@@ -23,6 +23,7 @@ export async function DashboardChrome({
           <nav className="dash-nav">
             <Link href="/dashboard">{t('tag')}</Link>
             {canManageContent && <Link href="/dashboard/content">Content</Link>}
+            {canManageContent && <Link href="/dashboard/jobs">Jobs</Link>}
           </nav>
           <div className="dash-user">
             <span className="dash-role">{profile.role}</span>
