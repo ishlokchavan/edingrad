@@ -185,6 +185,42 @@
       }
     }
   },
+  "crypto": {
+    "give": "You give",
+    "amount": "Amount",
+    "asset": "Asset",
+    "receiveVia": "Receive via",
+    "youReceive": "You receive (indicative)",
+    "approxUsd": "Approx. USD",
+    "rateLabel": "Rate",
+    "stale": "rates temporarily unavailable — indicative figures shown",
+    "rateNote": "1 {asset} ≈ {rate} · {spread}% spread applied",
+    "fxNote": "EUR and USD are settled at the prevailing rate at the time of the transaction.",
+    "methods": {
+      "cashAed": "Cash (AED)",
+      "managerCheque": "Manager’s cheque (AED)",
+      "sepaEur": "SEPA transfer (EUR)",
+      "swiftUsd": "SWIFT transfer (USD)"
+    },
+    "enquiry": {
+      "title": "Make an enquiry",
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "kyc": "I understand this is an enquiry only and that KYC/AML checks apply before any transaction.",
+      "submit": "Make an enquiry",
+      "sending": "Sending…",
+      "successTitle": "Thank you.",
+      "successBody": "We have your enquiry and will route it to a licensed partner and be in touch.",
+      "errors": {
+        "save": "Something went wrong. Please try again, or email us directly.",
+        "kyc": "Please acknowledge the KYC/AML notice to continue.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
+      }
+    },
+    "disclaimer": "Indicative only. Edingrad does not execute crypto transactions. Rates are sourced from a third party, exclude network and partner fees, and are not a quote. Any transaction is performed by a VARA-licensed partner, subject to KYC/AML and eligibility."
+  },
   "mortgage": {
     "inputs": {
       "price": "Property price",

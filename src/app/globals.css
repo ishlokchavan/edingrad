@@ -837,6 +837,12 @@ button,a{touch-action:manipulation}
 .calc-lead{grid-column:1/-1;border-top:1px solid var(--line);padding-top:28px;max-width:640px}
 .calc-disclaimer{grid-column:1/-1;font-size:.76rem;color:var(--low);max-width:none;margin-top:8px}
 
+/* crypto calculator give row */
+.crypto-give{display:flex;gap:10px}
+.crypto-give input{flex:1;background:var(--field);border:1px solid var(--line-2);padding:12px 14px;font-family:'Lynx Sans';font-size:1.1rem;color:var(--text);font-variant-numeric:tabular-nums;min-width:0}
+.crypto-give select{background:var(--field);border:1px solid var(--line-2);padding:12px;font-family:'Lynx Sans';font-weight:600;color:var(--text)}
+.calc-field>select{width:100%;background:var(--field);border:1px solid var(--line-2);padding:12px 14px;font-family:'Lynx Sans';font-size:.95rem;color:var(--text)}
+
 /* ---- Properties portal ---- */
 .listing-filters{display:grid;grid-template-columns:repeat(6,1fr) auto;gap:10px;margin-bottom:18px}
 .listing-filters select,.listing-filters input{background:var(--field);border:1px solid var(--line-2);padding:11px 12px;font-family:'Lynx Sans';font-size:.9rem;color:var(--text);min-width:0}
