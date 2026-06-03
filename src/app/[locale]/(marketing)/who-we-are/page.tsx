@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from '@/components/site/PageHero';
@@ -54,8 +55,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </section>
 
       <section className="image-band">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={sectionImage.facade} alt="" aria-hidden="true" />
+        <Image src={sectionImage.facade} alt="" aria-hidden fill sizes="100vw" />
       </section>
 
       <section className="mkt-section">

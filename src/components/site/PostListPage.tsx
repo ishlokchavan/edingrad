@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PageHero } from './PageHero';
@@ -32,8 +33,9 @@ export async function PostListPage({
               {posts.map((p) => (
                 <Link key={p.slug} href={`/who-we-are/${section}/${p.slug}`} className="post-card">
                   <span className={`post-card-cover${p.cover_image ? '' : ' post-card-cover-empty'}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    {p.cover_image && <img src={p.cover_image} alt="" loading="lazy" />}
+                    {p.cover_image && (
+                      <Image src={p.cover_image} alt="" fill sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw" />
+                    )}
                   </span>
                   <span className="post-card-body">
                     {p.published_at && (

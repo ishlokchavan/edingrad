@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { PostListPage } from '@/components/site/PostListPage';
 
 // DB-backed content — render per request so new posts appear without a rebuild.
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'routes' });

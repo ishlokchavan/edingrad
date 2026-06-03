@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAgent, listAgentListings } from '@/lib/agents';
 import { ListingCard } from '@/components/site/ListingCard';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export async function generateMetadata({ params: { id } }: { params: { locale: string; id: string } }): Promise<Metadata> {
   const agent = await getAgent(id);
@@ -25,8 +26,7 @@ export default async function Page({ params: { locale, id } }: { params: { local
         <Link href="/who-we-are/agents" className="article-back">← {t('title')}</Link>
         <div className="agent-head">
           <span className="agent-avatar agent-avatar-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            {agent.photo_url ? <img src={agent.photo_url} alt="" /> : <span className="agent-initial">{(agent.name ?? '·').charAt(0)}</span>}
+            {agent.photo_url ? <Image src={agent.photo_url} alt="" fill sizes="120px" /> : <span className="agent-initial">{(agent.name ?? '·').charAt(0)}</span>}
           </span>
           <div>
             <h1>{agent.name ?? 'Agent'}</h1>

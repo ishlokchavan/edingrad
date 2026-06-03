@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { createSupabaseServerClient } from '@/lib/supabase/server';
+import { createSupabasePublicClient } from '@/lib/supabase/server';
 
 export type PostType = 'press' | 'insight' | 'resource';
 
@@ -35,20 +35,24 @@ export interface PostFull extends PostSummary {
 
 /** Published posts of a type, newest first. RLS also restricts to published. */
 export async function listPosts(type: PostType): Promise<PostSummary[]> {
-  const supabase = createSupabaseServerClient();
-  const { data, error } = await supabase
-    .from('posts')
-    .select('slug,title,excerpt,published_at,tags,cover_image')
-    .eq('type', type)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false });
-  if (error) throw error;
-  return data ?? [];
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase
+      .from('posts')
+      .select('slug,title,excerpt,published_at,tags,cover_image')
+      .eq('type', type)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false });
+    if (error) throw error;
+    return data ?? [];
+  } catch {
+    return [];
+  }
 }
 
 /** A single published post with its gallery + downloads, or null. */
 export async function getPost(type: PostType, slug: string): Promise<PostFull | null> {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data: post, error } = await supabase
     .from('posts')
     .select('id,slug,title,excerpt,published_at,tags,cover_image,body')

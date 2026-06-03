@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { createSupabaseServerClient, createSupabaseAdminClient } from '@/lib/supabase/server';
+import { createSupabaseAdminClient, createSupabasePublicClient } from '@/lib/supabase/server';
 
 export interface ListingFilters {
   category?: string;
@@ -53,7 +53,7 @@ export interface ListingFull extends Omit<ListingSummary, 'coverUrl'> {
 
 /** Published listings matching the filters, with their cover image. */
 export async function listListings(f: ListingFilters): Promise<ListingSummary[]> {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   let query = supabase
     .from('listings')
     .select('id,slug,title,category,transaction_type,price,currency,bedrooms,bathrooms,size_sqft,community,featured')
@@ -90,7 +90,7 @@ export async function listListings(f: ListingFilters): Promise<ListingSummary[]>
 
 /** A single published listing with images and the agent card. */
 export async function getListing(slug: string): Promise<ListingFull | null> {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data: listing, error } = await supabase
     .from('listings')
     .select('id,slug,title,category,transaction_type,price,currency,bedrooms,bathrooms,size_sqft,community,featured,description,developer,completion_status,rera_permit_number,dld_permit,amenities,agent_id')

@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { createSupabaseServerClient } from '@/lib/supabase/server';
+import { createSupabasePublicClient } from '@/lib/supabase/server';
 import type { ListingSummary } from '@/lib/listings';
 
 export interface AgentProfile {
@@ -16,19 +16,23 @@ export interface AgentProfile {
 
 /** Active agents, publicly readable via RLS (role=agent, status=active). */
 export async function listAgents(): Promise<AgentProfile[]> {
-  const supabase = createSupabaseServerClient();
-  const { data, error } = await supabase
-    .from('profiles')
-    .select('user_id,name,photo_url,phone,email,languages,bio,rera_brn')
-    .eq('role', 'agent')
-    .eq('status', 'active')
-    .order('name', { ascending: true });
-  if (error) throw error;
-  return data ?? [];
+  try {
+    const supabase = createSupabasePublicClient();
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('user_id,name,photo_url,phone,email,languages,bio,rera_brn')
+      .eq('role', 'agent')
+      .eq('status', 'active')
+      .order('name', { ascending: true });
+    if (error) throw error;
+    return data ?? [];
+  } catch {
+    return [];
+  }
 }
 
 export async function getAgent(id: string): Promise<AgentProfile | null> {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data, error } = await supabase
     .from('profiles')
     .select('user_id,name,photo_url,phone,email,languages,bio,rera_brn')
@@ -42,7 +46,7 @@ export async function getAgent(id: string): Promise<AgentProfile | null> {
 
 /** An agent's published listings, with cover images. */
 export async function listAgentListings(agentId: string): Promise<ListingSummary[]> {
-  const supabase = createSupabaseServerClient();
+  const supabase = createSupabasePublicClient();
   const { data: rows, error } = await supabase
     .from('listings')
     .select('id,slug,title,category,transaction_type,price,currency,bedrooms,bathrooms,size_sqft,community,featured')

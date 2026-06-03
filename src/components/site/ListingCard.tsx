@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { formatPrice, type ListingSummary } from '@/lib/listings';
@@ -16,8 +17,7 @@ export async function ListingCard({ listing, locale }: { listing: ListingSummary
     <Link href={`/properties/${listing.slug}`} className="listing-card">
       <span className={`listing-cover${listing.coverUrl ? '' : ' listing-cover-empty'}`}>
         {listing.coverUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={listing.coverUrl} alt={listing.title} loading="lazy" />
+          <Image src={listing.coverUrl} alt={listing.title} fill sizes="(max-width:600px) 100vw, (max-width:900px) 50vw, 33vw" />
         )}
         <span className="listing-badge">{t(`tx.${listing.transaction_type}`)}</span>
       </span>

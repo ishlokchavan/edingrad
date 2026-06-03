@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import type { ListingImage } from '@/lib/listings';
 import { ArrowRight } from '@/components/icons/ui-icons';
 
@@ -54,8 +55,7 @@ export function ListingGallery({ images, title }: { images: ListingImage[]; titl
   return (
     <div className="listing-gallery">
       <button type="button" className="lg-main-btn" onClick={() => setOpen(true)} aria-label="Open gallery">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="lg-main" src={images[active].url} alt={images[active].alt ?? title} />
+        <Image className="lg-main" src={images[active].url} alt={images[active].alt ?? title} fill priority sizes="(max-width:900px) 100vw, 66vw" />
         <span className="lg-zoom" aria-hidden>⤢</span>
       </button>
 
@@ -69,8 +69,7 @@ export function ListingGallery({ images, title }: { images: ListingImage[]; titl
               onClick={() => setActive(i)}
               aria-label={`Image ${i + 1}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={im.url} alt="" loading="lazy" />
+              <Image src={im.url} alt="" fill sizes="96px" />
             </button>
           ))}
         </div>

@@ -7,11 +7,12 @@ import { MarkdownBody } from '@/components/site/MarkdownBody';
 import { ListingGallery } from '@/components/site/ListingGallery';
 import { EnquiryForm } from '@/components/site/EnquiryForm';
 import { JsonLd } from '@/components/site/JsonLd';
+import Image from 'next/image';
 import { ArrowRight } from '@/components/icons/ui-icons';
 import { siteUrl } from '@/lib/site';
 import { heroImage } from '@/lib/page-images';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export async function generateMetadata({ params: { slug } }: { params: { locale: string; slug: string } }): Promise<Metadata> {
   const listing = await getListing(slug);
@@ -132,8 +133,7 @@ export default async function Page({
       </div>
 
       <section className="image-band image-band-tall listing-closing">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage['home']} alt="" aria-hidden="true" />
+        <Image src={heroImage['home']!} alt="" aria-hidden fill sizes="100vw" />
         <div className="image-band-overlay">
           <div className="wrap">
             <p className="image-band-quote">{tg('title')}</p>

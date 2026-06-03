@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from '@/components/icons/ui-icons';
 
@@ -20,8 +21,7 @@ export function VisualCard({
   return (
     <Link href={href} className="visual-card">
       <div className="visual-card-media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt="" loading="lazy" />
+        <Image src={image} alt="" fill sizes="(max-width:600px) 100vw, (max-width:960px) 50vw, 33vw" />
       </div>
       <div className="visual-card-body">
         <span className="visual-card-title">{title}</span>

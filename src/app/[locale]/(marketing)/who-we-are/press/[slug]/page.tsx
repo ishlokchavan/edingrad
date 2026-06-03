@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PostDetailPage } from '@/components/site/PostDetailPage';
 import { getPost } from '@/lib/content';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export async function generateMetadata({ params: { slug } }: { params: { locale: string; slug: string } }): Promise<Metadata> {
   const post = await getPost('press', slug);

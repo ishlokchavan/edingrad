@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from '@/components/icons/ui-icons';
 import { JsonLd } from '@/components/site/JsonLd';
 import { VisualCard } from '@/components/site/VisualCard';
 import { siteUrl } from '@/lib/site';
-import { heroImage, sectionImage } from '@/lib/page-images';
+import { heroImage } from '@/lib/page-images';
 
 export default async function HomePage({
   params: { locale },
@@ -43,8 +44,7 @@ export default async function HomePage({
         }}
       />
       <section className="site-hero site-hero--image">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="site-hero-bg" src={heroImage['home']} alt="" aria-hidden="true" />
+        <Image className="site-hero-bg" src={heroImage['home']!} alt="" aria-hidden fill priority sizes="100vw" />
         <div className="wrap site-hero-content">
           <div className="over">{t('overline')}</div>
           <h1 className="display">{t('title')}</h1>
@@ -79,8 +79,7 @@ export default async function HomePage({
       </section>
 
       <section className="image-band image-band-tall">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={heroImage['properties']} alt="" aria-hidden="true" />
+        <Image src={heroImage['properties']!} alt="" aria-hidden fill sizes="100vw" />
         <div className="image-band-overlay">
           <div className="wrap">
             <p className="image-band-quote">{tf('tagline')}</p>

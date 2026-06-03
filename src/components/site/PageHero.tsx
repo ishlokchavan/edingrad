@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 
 /** Standard interior-page hero: overline + Palestra title + lead. With `image`,
  *  renders a photographic background hero with a dark overlay and white text. */
@@ -18,8 +19,7 @@ export function PageHero({
   if (image) {
     return (
       <section className="page-hero page-hero--image">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="page-hero-bg" src={image} alt="" aria-hidden="true" />
+        <Image className="page-hero-bg" src={image} alt="" aria-hidden fill priority sizes="100vw" />
         <div className="wrap page-hero-content">
           {overline && <div className="over">{overline}</div>}
           <h1>{title}</h1>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
@@ -42,8 +43,7 @@ export async function PostDetailPage({
       />
       {post.cover_image && (
         <div className="article-cover">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={post.cover_image} alt="" />
+          <Image src={post.cover_image} alt="" fill priority sizes="100vw" />
         </div>
       )}
       <div className="wrap article-wrap">

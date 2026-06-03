@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 
 interface Point {
   title: string;
@@ -32,8 +33,7 @@ export function FeatureRow({
   return (
     <div className={`feature-row${reversed ? ' feature-row--reversed' : ''}`}>
       <div className="feature-media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt={imageAlt} loading="lazy" />
+        <Image src={image} alt={imageAlt} fill sizes="(max-width:860px) 100vw, 50vw" />
       </div>
       <div className="feature-body">
         {overline && <div className="over">{overline}</div>}

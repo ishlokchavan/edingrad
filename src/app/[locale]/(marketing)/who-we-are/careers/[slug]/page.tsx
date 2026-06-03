@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { JobDetailPage } from '@/components/site/JobDetailPage';
 import { getJob } from '@/lib/jobs';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 export async function generateMetadata({ params: { slug } }: { params: { locale: string; slug: string } }): Promise<Metadata> {
   const job = await getJob(slug);
