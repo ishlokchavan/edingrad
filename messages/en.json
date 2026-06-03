@@ -185,6 +185,51 @@
       }
     }
   },
+  "mortgage": {
+    "inputs": {
+      "price": "Property price",
+      "deposit": "Deposit",
+      "depositHint": "Minimum 20% of the property price.",
+      "term": "Mortgage period",
+      "years": "years",
+      "rate": "Interest rate"
+    },
+    "summary": {
+      "loan": "Loan amount",
+      "monthly": "Estimated monthly repayment",
+      "costsTitle": "Purchase costs",
+      "totalCosts": "Total purchase costs",
+      "totalUpfront": "Total required upfront",
+      "viewCosts": "View costs & fees",
+      "download": "Download PDF summary"
+    },
+    "costs": {
+      "dld": "DLD transfer of title (4% + AED 580)",
+      "mortgageReg": "DLD mortgage registration (0.25% + AED 290)",
+      "trustee": "Trustee office fee (incl. VAT)",
+      "bank": "Bank arrangement fee (1%)",
+      "valuation": "Property valuation fee",
+      "agency": "Agency fee (2% + 5% VAT)",
+      "conveyancing": "Conveyancing fee (incl. VAT)"
+    },
+    "lead": {
+      "title": "Get pre-approved",
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "submit": "Get pre-approved",
+      "sending": "Sending…",
+      "successTitle": "Thank you.",
+      "successBody": "We have your details and the figures, and will be in touch to take it further.",
+      "errors": {
+        "save": "Something went wrong. Please try again, or email us directly.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
+      }
+    },
+    "pdf": { "subtitle": "Mortgage illustration" },
+    "disclaimer": "This calculator is provided for illustration only and does not constitute a mortgage offer, financial advice, or a guarantee of costs. Fees vary by lender, property and transaction. Confirm all figures with your bank and conveyancer before committing."
+  },
   "properties": {
     "metaTitle": "Properties — Edingrad",
     "overline": "Listings",

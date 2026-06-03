@@ -811,6 +811,32 @@ button,a{touch-action:manipulation}
 .prose thead th{color:var(--low);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 .prose td{color:var(--mid);font-variant-numeric:tabular-nums}
 
+/* ---- Mortgage calculator ---- */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gutter);align-items:start}
+@media(max-width:860px){.calc{grid-template-columns:1fr}}
+.calc-inputs{display:flex;flex-direction:column;gap:24px}
+.calc-field-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.calc-field-label{font-family:'Lynx Sans';font-weight:500;font-size:.9rem;color:var(--text)}
+.calc-field-value{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
+.calc-field input[type=range]{width:100%;accent-color:var(--accent-deep)}
+.calc-hint{display:block;font-size:.76rem;color:var(--low);margin-top:6px}
+.calc-results{border:1px solid var(--line);background:var(--surface);padding:24px}
+.calc-monthly{display:flex;flex-direction:column;gap:4px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.calc-monthly-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--low)}
+.calc-monthly-value{font-family:'Palestra',serif;font-weight:200;font-size:clamp(2.2rem,5vw,3rem);color:var(--text);font-variant-numeric:tabular-nums;line-height:1}
+.calc-totals{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.calc-totals span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--low)}
+.calc-totals strong{display:block;font-size:1.1rem;color:var(--text);margin-top:4px;font-variant-numeric:tabular-nums}
+.calc-breakdown{margin-top:16px}
+.calc-breakdown summary{cursor:pointer;font-weight:500;color:var(--accent);font-size:.9rem}
+.calc-breakdown table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.88rem}
+.calc-breakdown td{padding:8px 0;border-bottom:1px solid var(--line);color:var(--mid)}
+.calc-breakdown td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--text)}
+.calc-breakdown-total td{font-weight:600;color:var(--text);border-bottom:none}
+.calc-actions{margin-top:18px}
+.calc-lead{grid-column:1/-1;border-top:1px solid var(--line);padding-top:28px;max-width:640px}
+.calc-disclaimer{grid-column:1/-1;font-size:.76rem;color:var(--low);max-width:none;margin-top:8px}
+
 /* ---- Properties portal ---- */
 .listing-filters{display:grid;grid-template-columns:repeat(6,1fr) auto;gap:10px;margin-bottom:18px}
 .listing-filters select,.listing-filters input{background:var(--field);border:1px solid var(--line-2);padding:11px 12px;font-family:'Lynx Sans';font-size:.9rem;color:var(--text);min-width:0}
