@@ -4,6 +4,9 @@ import { ArrowRight } from '@/components/icons/ui-icons';
 import { JsonLd } from '@/components/site/JsonLd';
 import { siteUrl } from '@/lib/site';
 
+const HERO_IMAGE =
+  'https://d8j0ntlcm91z4.cloudfront.net/user_373qi3JTSvYmXjqMPJT9idOjFt7/hf_20260603_172728_e89eac88-89ce-4c76-a670-f1c465c00f07_min.webp';
+
 export default async function HomePage({
   params: { locale },
 }: {
@@ -37,8 +40,10 @@ export default async function HomePage({
           areaServed: 'AE',
         }}
       />
-      <section className="site-hero">
-        <div className="wrap">
+      <section className="site-hero site-hero--image">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="site-hero-bg" src={HERO_IMAGE} alt="" aria-hidden="true" />
+        <div className="wrap site-hero-content">
           <div className="over">{t('overline')}</div>
           <h1 className="display">{t('title')}</h1>
           <p className="lead site-hero-lead">{t('lead')}</p>

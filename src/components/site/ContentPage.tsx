@@ -19,6 +19,7 @@ export async function ContentPage({
   contentNamespace,
   browse = false,
   cols = 3,
+  image,
 }: {
   slug: string;
   locale: string;
@@ -28,6 +29,8 @@ export async function ContentPage({
   browse?: boolean;
   /** points grid columns on wide screens */
   cols?: 3 | 4;
+  /** optional full-width image band under the hero */
+  image?: string;
 }) {
   setRequestLocale(locale);
   const tr = await getTranslations('routes');
@@ -39,6 +42,13 @@ export async function ContentPage({
   return (
     <>
       <PageHero overline={tr(`${slug}.over`)} title={tr(`${slug}.title`)} lead={tr(`${slug}.lead`)} />
+
+      {image && (
+        <div className="content-image wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={image} alt="" />
+        </div>
+      )}
 
       <section className="mkt-section">
         <div className="wrap">
