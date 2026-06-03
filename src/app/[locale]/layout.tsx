@@ -5,8 +5,6 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { routing, type Locale } from '@/i18n/routing';
 import '../globals.css';
 import { ThemeProvider } from '@/lib/theme';
-import { SiteHeader } from '@/components/site/Header';
-import { SiteFooter } from '@/components/site/Footer';
 
 const STORAGE_KEY = 'edingrad-theme';
 
@@ -59,14 +57,7 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <a href="#main" className="skip-link">
-              {messages.common && (messages.common as { skipToContent: string }).skipToContent}
-            </a>
-            <SiteHeader />
-            <main id="main">{children}</main>
-            <SiteFooter />
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,10 +1,20 @@
 import createMiddleware from 'next-intl/middleware';
+import { type NextRequest } from 'next/server';
 import { routing } from './i18n/routing';
+import { updateSession } from './lib/supabase/middleware';
 
-export default createMiddleware(routing);
+const intlMiddleware = createMiddleware(routing);
+
+/**
+ * Run the next-intl locale middleware first, then refresh the Supabase session
+ * on its response so auth cookies stay current across both.
+ */
+export async function middleware(request: NextRequest) {
+  const response = intlMiddleware(request);
+  return updateSession(request, response);
+}
 
 export const config = {
-  // Run on all paths except API routes, Next internals, and files with an
-  // extension (e.g. /fonts/*.woff2). Keeps /api/health and static assets clear.
+  // All paths except API routes, Next internals, and files with an extension.
   matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
 };

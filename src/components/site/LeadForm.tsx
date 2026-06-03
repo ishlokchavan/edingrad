@@ -2,7 +2,7 @@
 
 import { useFormState, useFormStatus } from 'react-dom';
 import { useTranslations } from 'next-intl';
-import { submitLead } from '@/app/[locale]/get-in-touch/actions';
+import { submitLead } from '@/app/[locale]/(marketing)/get-in-touch/actions';
 import { INITIAL_LEAD_STATE, type LeadField, type LeadFieldError } from '@/lib/leads';
 
 function SubmitButton() {

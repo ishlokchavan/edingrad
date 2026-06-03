@@ -229,6 +229,35 @@
     "downloads": "Downloads",
     "download": "Download"
   },
+  "auth": {
+    "title": "Sign in",
+    "subtitle": "Access the Edingrad workspace.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signingIn": "Signing in…",
+    "backToSite": "Back to site",
+    "errors": {
+      "invalid": "Email or password is incorrect.",
+      "missing": "Enter your email and password."
+    }
+  },
+  "dashboard": {
+    "tag": "Dashboard",
+    "signOut": "Sign out",
+    "soon": "Coming soon",
+    "welcome": "Welcome, {name}.",
+    "roleIs": "You’re signed in as {role}.",
+    "intro": "Your workspace. Content authoring and listings arrive in the next increments.",
+    "caps": {
+      "content": { "title": "Content", "body": "Create and publish Press, Insights and Resources." },
+      "listings": { "title": "Listings", "body": "Manage every property listing and bulk imports." },
+      "leads": { "title": "Leads", "body": "Review enquiries from across the site." },
+      "users": { "title": "Users", "body": "Manage agents and editors, and their access." },
+      "ownListings": { "title": "My listings", "body": "Create, edit and publish your own listings." },
+      "ownLeads": { "title": "My leads", "body": "See enquiries on the listings you manage." }
+    }
+  },
   "routes": {
     "developers": {
       "over": "Who we help",
