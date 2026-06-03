@@ -79,7 +79,34 @@
     "metaTitle": "Get in touch — Edingrad",
     "overline": "Get in touch",
     "title": "Speak to an expert",
-    "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether — and how — we can help."
+    "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether — and how — we can help.",
+    "form": {
+      "name": "Your name",
+      "namePh": "Jane Doe",
+      "email": "Email",
+      "emailPh": "you@firm.com",
+      "phone": "Phone (optional)",
+      "phonePh": "+971 …",
+      "audience": "You are",
+      "audiencePlaceholder": "Select…",
+      "audienceDeveloper": "A developer",
+      "audienceAsset": "Asset management",
+      "audiencePrivate": "Private wealth",
+      "message": "How can we help?",
+      "messagePh": "The mandate, the timeframe, the question.",
+      "submit": "Send",
+      "sending": "Sending…",
+      "fine": "We reply to every serious enquiry. Your details are used only to respond.",
+      "successTitle": "Thank you.",
+      "successBody": "We have your note and will reply with a plain read on whether — and how — we can help.",
+      "errors": {
+        "check": "Please check the highlighted fields.",
+        "save": "Something went wrong saving your message. Please try again, or email us directly.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." },
+        "message": { "required": "Tell us briefly how we can help." }
+      }
+    }
   },
   "routes": {
     "developers": {

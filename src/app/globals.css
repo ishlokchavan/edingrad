@@ -675,3 +675,27 @@ button,a{touch-action:manipulation}
 .site-foot a{display:block;color:#c6c6c6;font-size:.88rem;padding:5px 0}
 .site-foot a:hover{color:#fff}
 .site-foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid #393939;font-size:.78rem;color:#8d8d8d}
+
+/* ---- Lead form (Get in touch) ---- */
+.form-wrap{max-width:640px;margin-inline:0}
+.lead-form{display:flex;flex-direction:column;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:7px}
+.form-field label{font-family:'Lynx Sans';font-weight:500;font-size:.82rem;color:var(--text)}
+.lead-form input,.lead-form select,.lead-form textarea{
+  width:100%;background:var(--field);border:1px solid var(--line-2);border-radius:0;
+  padding:12px 14px;font-family:'Lynx Sans';font-size:.95rem;color:var(--text);outline:none;
+  transition:border-color .2s,box-shadow .2s}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:var(--low)}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--accent)}
+.lead-form textarea{resize:vertical;min-height:120px;line-height:1.55}
+.form-err{font-size:.78rem;color:var(--alert-text)}
+.form-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.form-error{font-size:.85rem;color:var(--alert-text)}
+.form-fine{font-size:.78rem;color:var(--low);max-width:none}
+.form-success{border:1px solid var(--line-2);border-left:3px solid var(--ok);background:var(--surface);padding:28px 30px}
+.form-success h3{font-family:'Lynx Sans';font-weight:600;color:var(--text);margin-bottom:8px}
+.form-success p{color:var(--mid);max-width:52ch}
+/* honeypot: removed from layout + a11y tree, still in the DOM for bots */
+.form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
