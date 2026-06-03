@@ -8,6 +8,8 @@ supabase/
 └─ migrations/
    ├─ 0001_init.sql                Enums, tables, indexes, helper functions, RLS
    └─ 0002_security_hardening.sql  Pin function search_path; lock down trigger fn
+seed.sql                          Sample published posts (idempotent). Replace
+                                  with real content via the admin in Phase 2.
 ```
 
 > Both migrations are already applied to the `edingrad` project. The schema was

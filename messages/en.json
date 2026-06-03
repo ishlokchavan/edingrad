@@ -224,6 +224,9 @@
       }
     }
   },
+  "content": {
+    "empty": "Nothing published yet. Check back soon."
+  },
   "routes": {
     "developers": {
       "over": "Who we help",

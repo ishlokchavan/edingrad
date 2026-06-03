@@ -705,3 +705,19 @@ button,a{touch-action:manipulation}
 .form-success p{color:var(--mid);max-width:52ch}
 /* honeypot: removed from layout + a11y tree, still in the DOM for bots */
 .form-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---- Content: post list + article (Press / Insights / Resources) ---- */
+.post-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.post-item{border-bottom:1px solid var(--line)}
+.post-item>a{display:block;padding:24px 0;color:inherit;transition:padding-left .2s}
+.post-item>a:hover{padding-left:8px}
+.post-meta{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--low);font-variant-numeric:tabular-nums}
+.post-title{display:block;font-family:'Lynx Sans';font-weight:600;font-size:1.3rem;color:var(--text);margin:6px 0}
+.post-excerpt{display:block;color:var(--mid);font-size:.95rem;max-width:70ch}
+.article{padding:clamp(48px,7vw,88px) 0}
+.article-wrap{max-width:720px;margin-inline:auto}
+.article-back{display:inline-block;font-size:.85rem;color:var(--accent);margin-bottom:24px}
+.article-meta{font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--low);margin-bottom:10px;font-variant-numeric:tabular-nums}
+.article h1{font-family:'Palestra',serif;font-weight:700;font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.02em;margin-bottom:28px}
+.article-body p{font-size:1.06rem;line-height:1.7;color:var(--text);max-width:none;margin-bottom:20px}
+.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
