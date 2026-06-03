@@ -1025,3 +1025,9 @@ button,a{touch-action:manipulation}
 .image-band-quote{font-family:'Palestra',serif;font-weight:200;font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.15;letter-spacing:-.01em;color:#fff;max-width:20ch;margin:0}
 
 .properties-results-title{margin:0 0 28px}
+
+/* Listing detail closing lifestyle band */
+.listing-closing{margin-top:clamp(40px,6vw,72px)}
+.image-band-overlay .site-hero-actions{margin-top:22px}
+.listing-closing .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.listing-closing .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}

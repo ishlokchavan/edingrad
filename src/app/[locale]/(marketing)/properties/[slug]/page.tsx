@@ -7,7 +7,9 @@ import { MarkdownBody } from '@/components/site/MarkdownBody';
 import { ListingGallery } from '@/components/site/ListingGallery';
 import { EnquiryForm } from '@/components/site/EnquiryForm';
 import { JsonLd } from '@/components/site/JsonLd';
+import { ArrowRight } from '@/components/icons/ui-icons';
 import { siteUrl } from '@/lib/site';
+import { heroImage } from '@/lib/page-images';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,6 +25,7 @@ export default async function Page({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('properties');
+  const tg = await getTranslations('getInTouch');
   const listing = await getListing(slug);
   if (!listing) notFound();
 
@@ -127,6 +130,24 @@ export default async function Page({
           <EnquiryForm listingId={listing.id} listingTitle={listing.title} slug={listing.slug} />
         </aside>
       </div>
+
+      <section className="image-band image-band-tall listing-closing">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={heroImage['home']} alt="" aria-hidden="true" />
+        <div className="image-band-overlay">
+          <div className="wrap">
+            <p className="image-band-quote">{tg('title')}</p>
+            <div className="site-hero-actions">
+              <Link href="/get-in-touch" className="btn">
+                {tg('overline')} <ArrowRight size={18} />
+              </Link>
+              <Link href="/properties" className="btn-ghost">
+                {t('title')}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </article>
   );
 }

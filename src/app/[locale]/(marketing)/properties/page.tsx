@@ -3,14 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { listListings, type ListingFilters } from '@/lib/listings';
 import { ListingCard } from '@/components/site/ListingCard';
 import { PageHero } from '@/components/site/PageHero';
-import { VisualCard } from '@/components/site/VisualCard';
 import { heroImage } from '@/lib/page-images';
-
-const CATEGORIES = [
-  { value: 'residential', routeKey: 'residential' },
-  { value: 'commercial', routeKey: 'commercial' },
-  { value: 'offplan', routeKey: 'off-plan' },
-] as const;
 
 export const dynamic = 'force-dynamic';
 
@@ -33,8 +26,6 @@ export default async function Page({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('properties');
-  const tr = await getTranslations('routes');
-  const tc = await getTranslations('common');
 
   const filters: ListingFilters = {
     category: searchParams.category || undefined,
@@ -52,26 +43,6 @@ export default async function Page({
 
       <section className="mkt-section">
         <div className="wrap">
-          <div className="over">{t('browseOver')}</div>
-          <h2>{t('browseTitle')}</h2>
-          <div className="visual-grid visual-grid-3">
-            {CATEGORIES.map((c) => (
-              <VisualCard
-                key={c.value}
-                href={`/properties?category=${c.value}`}
-                image={heroImage[c.routeKey]!}
-                title={t(`cat.${c.value}`)}
-                body={tr(`${c.routeKey}.lead`)}
-                cta={tc('learnMore')}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mkt-section mkt-section-alt">
-        <div className="wrap">
-          <h2 className="properties-results-title">{t('allTitle')}</h2>
           <form method="get" className="listing-filters">
             <select name="category" defaultValue={filters.category ?? ''} aria-label={t('filters.category')}>
               <option value="">{t('filters.anyCategory')}</option>
