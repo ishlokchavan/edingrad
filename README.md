@@ -1,74 +1,94 @@
 # Edingrad
 
-A **Next.js 14 (App Router)** + **TypeScript (strict)** application for Edingrad,
-scaffolded on the Edingrad design system. It runs as a **server app** (not a
-static export), so route handlers, server actions, ISR and the Next image
-optimiser are available with no further configuration. It deploys to Vercel as a
-standard Next.js project.
+The **Edingrad** website & platform: a public marketing site and property-listing
+portal for an institutional-grade investment-advisory firm, with a role-based
+admin/CMS. Built with **Next.js 14 (App Router)** + **TypeScript (strict)**,
+**Supabase** (Postgres + Auth + Storage), and **Brevo** (transactional email),
+deployed on **Vercel**. Styled on the Edingrad design system (Palestra + Lynx
+Sans, IBM Carbon tokens) and written in the Edingrad voice.
 
-> Jira: **EG-24** (Phase 0 — Technical Foundation) — Scaffold the Next.js app and
-> port the design system from
-> [`edingrad-brand-guidelines`](https://github.com/ishlokchavan/edingrad-brand-guidelines).
-
-## Project docs (source of truth)
-
-The context behind this build lives in [`docs/`](./docs/) — read it before
-feature work:
-
-- [`docs/build-plan.md`](./docs/build-plan.md) — **the spec**: stack, site map, roles, data model, tool specs, phased delivery, EG-ticket mapping.
-- [`docs/voice.md`](./docs/voice.md) — **the Edingrad Standard** brand voice for all copy.
-- [`docs/design-system.md`](./docs/design-system.md) — design-system source and what's ported.
-- [`supabase/migrations/0001_init.sql`](./supabase/migrations/0001_init.sql) — the database schema (build-plan §5) as a ready-to-run migration.
+> Jira: **EG-24**. Spec: [`docs/build-plan.md`](./docs/build-plan.md) · voice:
+> [`docs/voice.md`](./docs/voice.md) · design system:
+> [`docs/design-system.md`](./docs/design-system.md).
 
 ---
 
-## What's here
+## Stack
 
-The project skeleton plus the **design system ported from
-[`edingrad-brand-guidelines`](https://github.com/ishlokchavan/edingrad-brand-guidelines)**.
-Per build-plan §2, this repo takes the *design system* and the product is built
-on top of it; the full guidelines microsite stays live at its own deployment as
-a reference.
-
-- **Design tokens** — IBM Carbon-based CSS variables (colour, spacing, type,
-  surfaces) with light/dark themes via `[data-theme]`, in `src/app/globals.css`.
-- **Self-hosted fonts** — Palestra (display serif) and Lynx Sans (humanist sans),
-  12 woff2 files in `public/fonts/`, declared with `@font-face` + `font-display: swap`.
-- **24-icon set** — IBM-style UI icons on a 32×32 grid, as typed React components
-  in `src/components/icons/ui-icons.tsx`.
-- **Colour data** — the full Carbon palette, scales, core families, categorical
-  sequence, alerts and dark surfaces, in `src/data/colors.ts`.
-- **Primitives** — reusable `Card`, `Pill`, `Swatch`, `SwatchRow`, `DoDont` in
-  `src/components/primitives/ui.tsx`, plus the `ThemeProvider` / `useTheme` theme
-  layer (`src/lib/theme.tsx`) and `ThemeToggle`.
-
-The home page (`src/app/page.tsx`) is a small hello-world that exercises the
-whole system: display + body type, the blue scale and core families, and the
-full icon set, with a working light/dark toggle. The marketing Home (build-plan
-§3) replaces it in Phase 1.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 14 (App Router), TypeScript strict — **server app** (not static export) |
+| Styling | CSS variables / design tokens (`src/app/globals.css`) |
+| i18n | next-intl, locale-segmented (`/[locale]`), English at root, Arabic/RTL-ready |
+| Database | Supabase (Postgres) with Row-Level Security |
+| Auth | Supabase Auth (email + password), roles: admin / editor / agent |
+| Storage | Supabase Storage — `media` (public), `applications` (private) |
+| Email | Brevo SMTP relay (nodemailer) |
+| Rates | CoinGecko (free tier) for the crypto tool |
+| PDF | jsPDF (mortgage illustration) |
+| Hosting | Vercel — production deploys from `main` |
 
 ---
 
-## Project structure
+## Routes (site map)
 
 ```
-src/
-├─ app/
-│  ├─ layout.tsx        Root layout: metadata, no-flash theme script, ThemeProvider
-│  ├─ page.tsx          Hello-world showcase of the design system
-│  └─ globals.css       Design tokens, base styles, @font-face
-├─ lib/
-│  └─ theme.tsx         ThemeProvider + useTheme (persisted, system-aware)
-├─ data/
-│  └─ colors.ts         Blue scale, families, grays, categorical, alerts, surfaces
-└─ components/
-   ├─ icons/            24 IBM-style UI icons as typed React components
-   ├─ layout/           ThemeToggle
-   └─ primitives/       Card, Pill, Swatch, SwatchRow, DoDont
-public/fonts/           Self-hosted Palestra + Lynx Sans (woff2)
-docs/                   Build plan, brand voice, design-system notes
-supabase/               Database schema & migrations
+/                                 Home
+/who-we-help                      + /developers /asset-management /private-wealth
+/what-we-do                       hub
+  /residential /commercial /off-plan        intros → portal
+  /property-management /currency-services /sell-instantly   service pages
+  /mortgage                       Mortgage calculator (+ PDF, pre-approval lead)
+  /crypto-exchange                Crypto rate calculator + enquiry (indicative)
+/who-we-are                       hub
+  /about
+  /press /insights /resources     CMS articles  (+ /[slug] detail)
+  /agents                         agent directory  (+ /[id] profile)
+  /careers                        jobs  (+ /[slug] detail + application upload)
+/properties                       listing portal (search + filters)
+  /properties/[slug]              listing detail (gallery, specs, agent, enquiry)
+/get-in-touch                     Speak to an expert (lead form)
+/login                            Supabase Auth
+/dashboard                        role-gated admin
+  /content  /content/new  /content/[id]     posts CMS (cover/gallery/downloads)
+  /jobs     /jobs/new     /jobs/[id]         jobs CMS
+  /listings /listings/new /listings/[id]     listings (+ photos, /import CSV)
+  /applications                              job applications (signed downloads)
+  /leads                                     enquiries (admin)
+/api/health                       pipeline/env check
 ```
+
+All public form submissions land in Supabase (`leads` / `job_applications`) and
+trigger a Brevo notification to the team.
+
+---
+
+## Roles & access (RLS-enforced)
+
+| Role | Can do |
+|---|---|
+| **admin** | Everything: content, jobs, all listings + bulk import, leads, applications |
+| **editor** | CMS only: posts (Press/Insights/Resources) and jobs |
+| **agent** | Their own listings (create/edit/publish + photos) |
+
+New signups auto-create a `profiles` row (`role: agent`, `status: pending`);
+an admin activates / re-roles from the Supabase dashboard.
+
+---
+
+## Environment variables
+
+Copy [`.env.example`](./.env.example) to `.env.local`; set the same in Vercel.
+
+| Var | Used by |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase clients (RLS) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only privileged client (uploads, admin reads) |
+| `BREVO_SMTP_USER`, `BREVO_SMTP_KEY`, `BREVO_FROM_EMAIL` | Transactional email (sender must be a **verified** Brevo sender) |
+| `BREVO_FROM_NAME`, `TEAM_INBOX_EMAIL` | Optional (defaults: `Edingrad`, the from address) |
+| `CRYPTO_SPREAD` | Optional display spread for the crypto tool (default `0.015`) |
+
+Check configuration at `GET /api/health`.
 
 ---
 
@@ -79,63 +99,57 @@ Requires Node 18.17+ (Node 20 LTS recommended).
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-```
-
-Other scripts:
-
-```bash
-npm run build      # production build (server output)
-npm run start      # serve the production build
-npm run lint       # eslint (next/core-web-vitals)
+npm run build      # production build
+npm run lint       # eslint
 npm run typecheck  # tsc --noEmit (strict)
 ```
 
 ---
 
-## Environment & services
+## Database
 
-Copy [`.env.example`](./.env.example) to `.env.local` for local dev, and set the
-same keys in Vercel project settings. Secrets are never committed.
+Schema and RLS live in [`supabase/migrations/`](./supabase/migrations/); sample
+content in [`supabase/seed.sql`](./supabase/seed.sql). Apply via the Supabase SQL
+editor or CLI (see [`supabase/README.md`](./supabase/README.md)). Regenerate
+types after schema changes into `src/lib/supabase/types.ts`.
 
-| Var | Used by |
-|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase clients (browser + server, RLS-respecting) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Privileged server client (bypasses RLS) — server-only |
-| `BREVO_SMTP_USER`, `BREVO_SMTP_KEY`, `BREVO_FROM_EMAIL` (+ optional `BREVO_FROM_NAME`, `TEAM_INBOX_EMAIL`) | Transactional email via Brevo SMTP relay |
+**Bulk listing import** (admin → `/dashboard/listings/import`) accepts a CSV with
+columns: `title, category, transaction_type` (required), then `price, bedrooms,
+bathrooms, size_sqft, community, developer, completion_status,
+rera_permit_number, description, amenities` (pipe-separated), `slug`. Rows import
+as drafts and an audit row is written to `listing_imports`.
 
-Foundation modules (build-plan Phase 0):
+---
 
-- `src/lib/env.ts` — typed env contract, read at call time (a missing secret never breaks the build).
-- `src/lib/supabase/{client,server}.ts` — browser, server (cookie/RLS), and admin (service-role) clients.
-- `src/lib/email/brevo.ts` — `sendTransactionalEmail` / `notifyTeam` helpers.
-- `GET /api/health` — confirms the server runtime and reports which env vars are configured (booleans only). Verify the pipeline at `/api/health`.
+## Project structure
 
-The database schema lives in [`supabase/migrations/`](./supabase/migrations/);
-apply it per [`supabase/README.md`](./supabase/README.md).
+```
+src/
+├─ app/[locale]/
+│  ├─ layout.tsx               providers shell (theme, i18n)
+│  ├─ (marketing)/             public site (header/footer layout)
+│  ├─ (app)/dashboard/         role-gated admin (its own chrome)
+│  └─ login/                   auth
+├─ app/api/health/             pipeline check
+├─ components/{site,dashboard,icons,primitives,layout}/
+├─ lib/                        supabase, auth, content, listings, jobs, agents,
+│                              mortgage, crypto, email/brevo, i18n
+├─ i18n/                       routing, request, navigation, middleware wiring
+└─ middleware.ts               next-intl + Supabase session refresh
+messages/en.json               all UI copy (Arabic = add ar.json + a locale)
+public/fonts/                  Palestra + Lynx Sans (woff2)
+docs/                          build plan, voice, design-system notes
+supabase/                      migrations + seed
+```
 
 ---
 
 ## Deploying to Vercel
 
-A standard Next.js **server app** — Vercel auto-detects the framework (declared in
-`vercel.json`) and builds it with no extra configuration. Production deploys from
-the repository's default branch (`main`); other branches deploy as previews.
+Standard Next.js server app — Vercel auto-detects the framework (declared in
+`vercel.json`). **Production deploys from `main`**; other branches are previews.
+Set the env vars above in the project settings. Apply the Supabase migrations to
+the linked project. To go live on `edingrad.com`, add the domain in Vercel
+**Settings → Domains** and point your DNS at Vercel.
 
-```bash
-npm i -g vercel
-vercel          # preview deploy
-vercel --prod   # production deploy
-```
-
-> This project does **not** use `output: 'export'` — it is built and served as a
-> Next.js server app.
-
----
-
-## Theming
-
-`ThemeProvider` resolves the theme as **saved preference → system preference →
-light**, persists it to `localStorage`, and sets `data-theme` on `<html>`. A tiny
-inline script in `layout.tsx` applies it before first paint to avoid a flash.
-
-© 2026 Edingrad.
+© 2026 Edingrad Real Estate L.L.C.
