@@ -805,6 +805,59 @@ button,a{touch-action:manipulation}
 .prose thead th{color:var(--low);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
 .prose td{color:var(--mid);font-variant-numeric:tabular-nums}
 
+/* ---- Properties portal ---- */
+.listing-filters{display:grid;grid-template-columns:repeat(6,1fr) auto;gap:10px;margin-bottom:18px}
+.listing-filters select,.listing-filters input{background:var(--field);border:1px solid var(--line-2);padding:11px 12px;font-family:'Lynx Sans';font-size:.9rem;color:var(--text);min-width:0}
+.listing-filters .btn{padding:11px 20px}
+@media(max-width:900px){.listing-filters{grid-template-columns:1fr 1fr}.listing-filters .btn{grid-column:1/-1}}
+.listing-count{font-size:.82rem;color:var(--low);margin-bottom:18px}
+.listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--grid-gutter)}
+@media(max-width:900px){.listing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.listing-grid{grid-template-columns:1fr}}
+.listing-card{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface);overflow:hidden;color:inherit;transition:border-color .25s}
+.listing-card:hover{border-color:var(--line-strong)}
+.listing-cover{position:relative;display:block;aspect-ratio:16/10;background:var(--raised);overflow:hidden}
+.listing-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.listing-cover-empty{background:linear-gradient(135deg,var(--raised),var(--surface))}
+.listing-badge{position:absolute;top:12px;left:12px;background:var(--accent-deep);color:#fff;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;padding:4px 10px;font-weight:600}
+.listing-body{display:flex;flex-direction:column;gap:5px;padding:18px}
+.listing-price{font-family:'Lynx Sans';font-weight:700;font-size:1.15rem;color:var(--text);font-variant-numeric:tabular-nums}
+.listing-title{font-weight:500;color:var(--text)}
+.listing-community{font-size:.85rem;color:var(--low)}
+.listing-specs{font-size:.82rem;color:var(--mid);margin-top:4px}
+
+/* listing detail */
+.listing-detail{padding:clamp(24px,4vw,40px) 0 clamp(48px,7vw,88px)}
+.listing-detail .article-back{display:inline-block;margin-bottom:18px}
+.listing-gallery{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.lg-main{width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);display:block;background:var(--raised)}
+.lg-empty{aspect-ratio:16/9;background:linear-gradient(135deg,var(--raised),var(--surface))}
+.lg-thumbs{display:flex;gap:10px;flex-wrap:wrap}
+.lg-thumb{width:96px;height:64px;border:1px solid var(--line);padding:0;cursor:pointer;background:none;overflow:hidden}
+.lg-thumb.is-active{border-color:var(--accent);outline:1px solid var(--accent)}
+.lg-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.listing-detail-grid{display:grid;grid-template-columns:1fr 360px;gap:var(--grid-gutter);align-items:start}
+@media(max-width:900px){.listing-detail-grid{grid-template-columns:1fr}}
+.listing-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.listing-head h1{font-family:'Palestra',serif;font-weight:700;font-size:clamp(1.7rem,3.2vw,2.4rem);letter-spacing:-.02em}
+.listing-detail-community{color:var(--mid);margin-top:6px}
+.listing-detail-price{font-family:'Lynx Sans';font-weight:700;font-size:1.4rem;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0}
+@media(max-width:560px){.spec-grid{grid-template-columns:1fr 1fr}}
+.spec{background:var(--surface);padding:14px 16px}
+.spec dt{font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--low)}
+.spec dd{font-weight:500;color:var(--text);margin-top:4px;font-variant-numeric:tabular-nums}
+.amenities{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.amenities li{position:relative;padding-left:20px;color:var(--mid);font-size:.92rem}
+.amenities li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;background:var(--accent)}
+.listing-permit{margin-top:28px;font-size:.82rem;color:var(--low)}
+.listing-side{position:sticky;top:84px;display:flex;flex-direction:column;gap:24px;border:1px solid var(--line);background:var(--surface);padding:24px}
+@media(max-width:900px){.listing-side{position:static}}
+.agent-card{padding-bottom:20px;border-bottom:1px solid var(--line)}
+.agent-name{font-family:'Lynx Sans';font-weight:600;font-size:1.1rem;color:var(--text)}
+.agent-sub{font-size:.74rem;color:var(--low);letter-spacing:.04em;margin:2px 0 10px}
+.agent-line{display:block;color:var(--accent);font-size:.9rem;padding:2px 0}
+
 /* careers / jobs list */
 .job-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
 .job-item{border-bottom:1px solid var(--line)}

@@ -189,7 +189,54 @@
     "metaTitle": "Properties — Edingrad",
     "overline": "Listings",
     "title": "Properties",
-    "lead": "A focused portal for residential, commercial and off-plan opportunities. Search and filter are on the way."
+    "lead": "Residential, commercial and off-plan opportunities — searched and filtered, judged on the numbers.",
+    "empty": "No properties match. Try widening the filters.",
+    "cat": { "residential": "Residential", "commercial": "Commercial", "offplan": "Off-plan" },
+    "tx": { "sale": "For sale", "rent": "For rent" },
+    "filters": {
+      "category": "Category",
+      "transaction": "Sale or rent",
+      "beds": "Bedrooms",
+      "anyCategory": "Any category",
+      "anyTransaction": "Sale or rent",
+      "anyBeds": "Any beds",
+      "minPrice": "Min price",
+      "maxPrice": "Max price",
+      "communityPh": "Community",
+      "apply": "Search",
+      "results": "{count, plural, =0 {No properties} =1 {1 property} other {# properties}}"
+    },
+    "specs": {
+      "category": "Category",
+      "transaction": "Type",
+      "beds": "Bedrooms",
+      "baths": "Bathrooms",
+      "sqft": "Size (sqft)",
+      "community": "Community",
+      "developer": "Developer",
+      "completion": "Completion",
+      "amenities": "Amenities",
+      "reraPermit": "RERA permit",
+      "bedsN": "{n} bed",
+      "bathsN": "{n} bath",
+      "sqftN": "{n} sqft"
+    },
+    "enquiry": {
+      "title": "Enquire about this property",
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "message": "Message (optional)",
+      "submit": "Send enquiry",
+      "sending": "Sending…",
+      "successTitle": "Thank you.",
+      "successBody": "We have your enquiry and will be in touch shortly.",
+      "errors": {
+        "save": "Something went wrong. Please try again, or email us directly.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
+      }
+    }
   },
   "getInTouch": {
     "metaTitle": "Get in touch — Edingrad",
