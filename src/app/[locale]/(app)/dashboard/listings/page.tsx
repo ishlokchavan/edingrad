@@ -21,7 +21,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <div className="over">Portfolio</div>
           <h1>{profile.role === 'admin' ? 'All listings' : 'My listings'}</h1>
         </div>
-        <Link href="/dashboard/listings/new" className="btn">New listing</Link>
+        <div className="admin-actions">
+          {profile.role === 'admin' && (
+            <Link href="/dashboard/listings/import" className="btn-ghost">Import CSV</Link>
+          )}
+          <Link href="/dashboard/listings/new" className="btn">New listing</Link>
+        </div>
       </div>
       {listings.length === 0 ? (
         <p className="mkt-note">No listings yet. Create your first.</p>
