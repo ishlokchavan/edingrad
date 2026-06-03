@@ -42,3 +42,14 @@ export function createSupabaseAdminClient() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
+
+/**
+ * Anonymous, cookie-less client for read-only public data in contexts where
+ * request cookies aren't available (sitemap, OG images). RLS-restricted to
+ * published rows.
+ */
+export function createSupabasePublicClient() {
+  return createClient<Database>(env.supabaseUrl(), env.supabaseAnonKey(), {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}

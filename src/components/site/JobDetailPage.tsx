@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { getJob } from '@/lib/jobs';
 import { MarkdownBody } from './MarkdownBody';
 import { ApplyForm } from './ApplyForm';
+import { JsonLd } from './JsonLd';
 
 /** A single published job + application form, under /who-we-are/careers/<slug>. */
 export async function JobDetailPage({ slug, locale }: { slug: string; locale: string }) {
@@ -17,6 +18,21 @@ export async function JobDetailPage({ slug, locale }: { slug: string; locale: st
 
   return (
     <article className="article">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'JobPosting',
+          title: job.title,
+          description: job.description ?? job.title,
+          datePosted: job.published_at ?? undefined,
+          employmentType: job.employment_type ?? undefined,
+          hiringOrganization: { '@type': 'Organization', name: 'Edingrad' },
+          jobLocation: {
+            '@type': 'Place',
+            address: { '@type': 'PostalAddress', addressLocality: job.location ?? 'Dubai', addressCountry: 'AE' },
+          },
+        }}
+      />
       <div className="wrap article-wrap">
         <Link href="/who-we-are/careers" className="article-back">
           ← {tr('careers.title')}

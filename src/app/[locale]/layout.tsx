@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing, type Locale } from '@/i18n/routing';
+import { siteUrl } from '@/lib/site';
 import '../globals.css';
 import { ThemeProvider } from '@/lib/theme';
 
@@ -25,10 +26,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'home' });
   return {
+    metadataBase: new URL(siteUrl),
     title: { default: t('metaTitle'), template: '%s · Edingrad' },
     description: t('metaDescription'),
     applicationName: 'Edingrad',
-    openGraph: { title: t('metaTitle'), description: t('metaDescription'), type: 'website' },
+    openGraph: {
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+      type: 'website',
+      siteName: 'Edingrad',
+      url: siteUrl,
+    },
+    twitter: { card: 'summary_large_image', title: t('metaTitle'), description: t('metaDescription') },
   };
 }
 

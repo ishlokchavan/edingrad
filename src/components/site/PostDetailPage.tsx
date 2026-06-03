@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { getPost, formatBytes, type PostType } from '@/lib/content';
 import { MarkdownBody } from './MarkdownBody';
+import { JsonLd } from './JsonLd';
 import { Download } from '@/components/icons/ui-icons';
 
 /** A single published post under /who-we-are/<section>/<slug>. */
@@ -27,6 +28,18 @@ export async function PostDetailPage({
 
   return (
     <article className="article">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: post.title,
+          description: post.excerpt ?? undefined,
+          datePublished: post.published_at ?? undefined,
+          image: post.cover_image ? [post.cover_image] : undefined,
+          author: { '@type': 'Organization', name: 'Edingrad' },
+          publisher: { '@type': 'Organization', name: 'Edingrad' },
+        }}
+      />
       {post.cover_image && (
         <div className="article-cover">
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from '@/components/icons/ui-icons';
+import { JsonLd } from '@/components/site/JsonLd';
+import { siteUrl } from '@/lib/site';
 
 export default async function HomePage({
   params: { locale },
@@ -25,6 +27,16 @@ export default async function HomePage({
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Edingrad',
+          url: siteUrl,
+          description: t('lead'),
+          areaServed: 'AE',
+        }}
+      />
       <section className="site-hero">
         <div className="wrap">
           <div className="over">{t('overline')}</div>

@@ -6,6 +6,8 @@ import { getListing, formatPrice } from '@/lib/listings';
 import { MarkdownBody } from '@/components/site/MarkdownBody';
 import { ListingGallery } from '@/components/site/ListingGallery';
 import { EnquiryForm } from '@/components/site/EnquiryForm';
+import { JsonLd } from '@/components/site/JsonLd';
+import { siteUrl } from '@/lib/site';
 
 export const dynamic = 'force-dynamic';
 
@@ -38,6 +40,25 @@ export default async function Page({
 
   return (
     <article className="listing-detail">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: listing.title,
+          description: listing.description ?? undefined,
+          category: listing.category,
+          image: listing.images[0]?.url ? [listing.images[0].url] : undefined,
+          offers: listing.price
+            ? {
+                '@type': 'Offer',
+                price: listing.price,
+                priceCurrency: listing.currency,
+                availability: 'https://schema.org/InStock',
+                url: `${siteUrl}/properties/${listing.slug}`,
+              }
+            : undefined,
+        }}
+      />
       <div className="wrap">
         <Link href="/properties" className="article-back">
           ← {t('title')}
