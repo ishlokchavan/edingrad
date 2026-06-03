@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/lib/theme';
+import { Shell } from '@/components/layout/Shell';
 
 const STORAGE_KEY = 'edingrad-theme';
 
@@ -12,14 +13,14 @@ const themeInitScript = `(function(){try{
 }catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
 
 export const metadata: Metadata = {
-  title: 'Edingrad',
+  title: 'Edingrad \u2014 Brand Guidelines',
   description:
-    'Edingrad — a Next.js 14 server app on the Edingrad design system: Palestra and Lynx Sans, IBM Carbon tokens, and a 24-icon set.',
-  applicationName: 'Edingrad',
+    'The Edingrad brand and design system: philosophy, logo, typography, colour, grid, iconography, data visualisation, animation and voice.',
+  applicationName: 'Edingrad Brand Guidelines',
   authors: [{ name: 'Edingrad' }],
   openGraph: {
-    title: 'Edingrad',
-    description: 'Blue-led, dark-first. Built on Palestra and Lynx Sans.',
+    title: 'Edingrad \u2014 Brand Guidelines',
+    description: 'The identity system behind Edingrad. Blue-led, dark-first, built on Palestra and Lynx Sans.',
     type: 'website',
   },
 };
@@ -37,7 +38,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Shell>{children}</Shell>
+        </ThemeProvider>
       </body>
     </html>
   );

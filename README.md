@@ -1,40 +1,46 @@
 # Edingrad
 
-A **Next.js 14 (App Router)** + **TypeScript (strict)** application for Edingrad,
-scaffolded on the Edingrad design system. It runs as a **server app** (not a
-static export), so route handlers, server actions, ISR and the Next image
-optimiser are available with no further configuration. It deploys to Vercel as a
-standard Next.js project.
+The **Edingrad brand & design-system site**, built with **Next.js 14 (App Router)**
+and **TypeScript (strict)**, styled after the IBM Design Language. It runs as a
+**server app** (not a static export), so route handlers, server actions, ISR and
+the Next image optimiser are available with no further configuration, and it
+deploys to Vercel as a standard Next.js project.
 
-> Jira: **EG-24** — Scaffold the Next.js app and port the design system.
+The whole site is **one scrolling document** with a sticky sidebar, scroll-spy,
+search, light/dark theming, and a Previous/Next pager — all driven from a single
+typed registry.
+
+> Jira: **EG-24** — Scaffold the Next.js app and port the design system from
+> [`edingrad-brand-guidelines`](https://github.com/ishlokchavan/edingrad-brand-guidelines).
 
 ---
 
-## What's here
+## Why this is maintainable & scalable
 
-This is the project skeleton plus the **design system ported from
-[`edingrad-brand-guidelines`](https://github.com/ishlokchavan/edingrad-brand-guidelines)**:
+The key idea: **one section registry is the single source of truth.** Navigation,
+ordering, the two-digit section numbers, the search index, scroll-spy, and the
+pager are all *derived* from `src/lib/sections.ts`.
 
-- **Design tokens** — IBM Carbon-based CSS variables (colour, spacing, type,
-  surfaces) with light/dark themes via `[data-theme]`, in `src/app/globals.css`.
-- **Self-hosted fonts** — Palestra (display serif) and Lynx Sans (humanist sans),
-  12 woff2 files in `public/fonts/`, declared with `@font-face` + `font-display: swap`.
-- **24-icon set** — IBM-style UI icons on a 32×32 grid, as typed React components
-  in `src/components/icons/ui-icons.tsx`.
-- **Colour data** — the full Carbon palette, scales, core families, categorical
-  sequence, alerts and dark surfaces, in `src/data/colors.ts`.
-- **Primitives** — reusable `Card`, `Pill`, `Swatch`, `SwatchRow`, `DoDont` in
-  `src/components/primitives/ui.tsx`, plus the `ThemeProvider` / `useTheme` theme
-  layer (`src/lib/theme.tsx`) and `ThemeToggle`.
+To add a new guideline section you do exactly two things:
 
-The home page (`src/app/page.tsx`) is a small hello-world that exercises the
-whole system: display + body type, the blue scale and core families, and the
-full icon set, with a working light/dark toggle.
+1. Add an entry to `SECTIONS` in `src/lib/sections.ts`.
+2. Create the matching component in `src/components/sections/` and drop it into
+   `src/app/page.tsx`.
 
-> The brand-guidelines `Section` / `Pager` primitives are intentionally **not**
-> ported here — they are coupled to that site's single-document section registry
-> rather than being a general-purpose building block. The reusable UI primitives
-> above are ported verbatim.
+Nav links, sub-links, "on this page" jumps, section numbering, search results,
+and the prev/next pager update **automatically**.
+
+Other scalability levers:
+
+- **Design tokens, not hard-coded styles.** All colour, spacing, type and
+  surface decisions live as CSS variables in `src/app/globals.css` (light/dark
+  themes via `[data-theme]`). A rebrand is a token change, not a component rewrite.
+- **Data-driven content.** The 24 UI icons, the chart catalogue, the colour
+  palette and the brand/animation/voice principles live in typed modules under
+  `src/data/` (and `src/components/icons/`) and are rendered by small components.
+- **Reusable primitives & charts.** `Section`, `Card`, `Swatch`, `DoDont`,
+  `Pager`, and the prop-driven `BarChart` / `LineChart` / `Donut` are used across
+  sections.
 
 ---
 
@@ -43,19 +49,27 @@ full icon set, with a working light/dark toggle.
 ```
 src/
 ├─ app/
-│  ├─ layout.tsx        Root layout: metadata, no-flash theme script, ThemeProvider
-│  ├─ page.tsx          Hello-world showcase of the design system
-│  └─ globals.css       Design tokens, base styles, @font-face
+│  ├─ layout.tsx        Root layout: metadata, no-flash theme script, <Shell>
+│  ├─ page.tsx          Assembles Hero + 12 sections in registry order
+│  └─ globals.css       Design tokens, base, app shell, section styles, @font-face
 ├─ lib/
-│  └─ theme.tsx         ThemeProvider + useTheme (persisted, system-aware)
+│  ├─ sections.ts       ★ Section registry — nav, order, numbering, search, pager
+│  ├─ theme.tsx         ThemeProvider + useTheme (persisted, system-aware)
+│  └─ useScrollSpy.ts   Active-section tracking
 ├─ data/
-│  └─ colors.ts         Blue scale, families, grays, categorical, alerts, surfaces
-└─ components/
-   ├─ icons/            24 IBM-style UI icons as typed React components
-   ├─ layout/           ThemeToggle
-   └─ primitives/       Card, Pill, Swatch, SwatchRow, DoDont
+│  ├─ colors.ts         Blue scale, families, grays, categorical, alerts, surfaces
+│  ├─ charts.ts         Chart catalogue (blue-family thumbnails)
+│  └─ principles.ts     Brand principles, animation principles, voice
+├─ components/
+│  ├─ layout/           Shell, Header, Sidebar, Footer, ThemeToggle, Search
+│  ├─ primitives/       Section, OnThisPage, Pager, Card, Swatch, DoDont, Pill
+│  ├─ charts/           BarChart, LineChart, Donut, ChartCatalog
+│  ├─ icons/            24 IBM-style UI icons as typed React components
+│  └─ sections/         Hero + Philosophy … Help (one component per section)
 public/fonts/           Self-hosted Palestra + Lynx Sans (woff2)
 ```
+
+`★` = the file you touch most when extending the site.
 
 ---
 
@@ -81,21 +95,18 @@ npm run typecheck  # tsc --noEmit (strict)
 
 ## Deploying to Vercel
 
-A standard Next.js server app — Vercel auto-detects the framework (declared in
-`vercel.json`) and builds it with no extra configuration.
-
-**Import the Git repo (recommended)**
-
-1. Go to <https://vercel.com/new> and import this repository.
-2. Framework preset: **Next.js** (auto-detected). Click **Deploy**.
-
-**Vercel CLI**
+A standard Next.js **server app** — Vercel auto-detects the framework (declared in
+`vercel.json`) and builds it with no extra configuration. Production deploys from
+the repository's default branch (`main`); other branches deploy as previews.
 
 ```bash
 npm i -g vercel
 vercel          # preview deploy
 vercel --prod   # production deploy
 ```
+
+> This project does **not** use `output: 'export'` — it is built and served as a
+> Next.js server app.
 
 ---
 
@@ -104,5 +115,12 @@ vercel --prod   # production deploy
 `ThemeProvider` resolves the theme as **saved preference → system preference →
 light**, persists it to `localStorage`, and sets `data-theme` on `<html>`. A tiny
 inline script in `layout.tsx` applies it before first paint to avoid a flash.
+Hero and section bands follow the active theme; the top app-bar stays dark in
+both (an IBM Design Language signature).
+
+## Notes
+
+- Fonts (Palestra, Lynx Sans) are self-hosted in `public/fonts` and declared via
+  `@font-face` with `font-display: swap`.
 
 © 2026 Edingrad.
