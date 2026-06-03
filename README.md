@@ -13,6 +13,16 @@ typed registry.
 > Jira: **EG-24** — Scaffold the Next.js app and port the design system from
 > [`edingrad-brand-guidelines`](https://github.com/ishlokchavan/edingrad-brand-guidelines).
 
+## Project docs (source of truth)
+
+The context behind this build lives in [`docs/`](./docs/) — read it before
+feature work:
+
+- [`docs/build-plan.md`](./docs/build-plan.md) — **the spec**: stack, site map, roles, data model, tool specs, phased delivery, EG-ticket mapping.
+- [`docs/voice.md`](./docs/voice.md) — **the Edingrad Standard** brand voice for all copy.
+- [`docs/design-system.md`](./docs/design-system.md) — design-system source and what's ported.
+- [`supabase/migrations/0001_init.sql`](./supabase/migrations/0001_init.sql) — the database schema (build-plan §5) as a ready-to-run migration.
+
 ---
 
 ## Why this is maintainable & scalable
