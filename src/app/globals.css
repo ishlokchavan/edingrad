@@ -1046,3 +1046,22 @@ button,a{touch-action:manipulation}
 .lightbox-next{right:clamp(12px,3vw,40px)}
 .lightbox-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#fff;font-family:'Lynx Sans';font-size:.85rem;letter-spacing:.08em;opacity:.85;font-variant-numeric:tabular-nums}
 @media(max-width:600px){.lightbox-nav{width:40px;height:40px}}
+
+/* Footer legal links */
+.site-foot-legal{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:36px;padding-top:24px;border-top:1px solid #393939;font-size:.8rem}
+.site-foot-legal a{display:inline;color:#8d8d8d;padding:0}
+.site-foot-legal a:hover{color:#fff}
+.site-foot-legal + .site-foot-bottom{margin-top:16px;padding-top:0;border-top:none}
+
+/* Legal & compliance pages */
+.legal-prose h2{margin-top:34px;font-size:1.3rem;font-weight:600;color:var(--text)}
+.legal-prose h2:first-child{margin-top:0}
+
+/* Sell instantly */
+.si-promise{font-size:clamp(2rem,4.4vw,3.3rem);max-width:20ch;margin-top:12px}
+.si-promise-body{margin-top:20px;max-width:62ch}
+.si-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px)}
+.si-detail-grid h2{margin-bottom:12px;max-width:20ch}
+@media(max-width:760px){.si-detail-grid{grid-template-columns:1fr}}
+.si-disclaimer{margin-top:22px;max-width:62ch}
+.calc-policy-link{color:var(--accent);text-decoration:underline;white-space:nowrap}

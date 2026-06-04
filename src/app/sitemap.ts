@@ -28,6 +28,10 @@ const STATIC_PATHS = [
   '/who-we-are/careers',
   '/properties',
   '/get-in-touch',
+  '/legal/privacy',
+  '/legal/terms',
+  '/legal/cookies',
+  '/legal/kyc-aml',
 ];
 
 const POST_SECTION: Record<string, string> = { press: 'press', insight: 'insights', resource: 'resources' };

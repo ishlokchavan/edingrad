@@ -231,7 +231,59 @@
         "email": { "required": "Please add an email.", "email": "That email doesn’t look right." }
       }
     },
-    "disclaimer": "Indicative only. Edingrad does not execute crypto transactions. Rates are sourced from a third party, exclude network and partner fees, and are not a quote. Any transaction is performed by a VARA-licensed partner, subject to KYC/AML and eligibility."
+    "disclaimer": "Indicative only. Edingrad does not execute crypto transactions. Rates are sourced from a third party, exclude network and partner fees, and are not a quote. Any transaction is performed by a VARA-licensed partner, subject to KYC/AML and eligibility.",
+    "kycPolicy": "Read the KYC/AML Policy"
+  },
+  "sellInstantly": {
+    "metaTitle": "Sell instantly · Edingrad",
+    "overline": "What we do",
+    "title": "Sell instantly",
+    "lead": "A defined route to a timely sale. We market your property to sell within 30 days. If it doesn't, we buy it at market price.",
+    "ctaQualify": "See if your property qualifies",
+    "promiseOver": "The offer",
+    "promiseTitle": "Sell within 30 days, or we buy at market price.",
+    "promiseBody": "Two outcomes, both defined up front. We list and market your property with the aim of a completed sale inside 30 days. If the market does not produce a buyer in that window, Edingrad purchases the property at an independently assessed market price. You carry no open-ended timeline either way.",
+    "stepsOver": "How it works",
+    "stepsTitle": "Three steps, no ambiguity.",
+    "steps": [
+      { "title": "1 · Qualify", "body": "We assess whether your property fits the programme: title, location, condition and a realistic price. We tell you plainly, before you commit." },
+      { "title": "2 · Price", "body": "We set a market price from comparable evidence, recent transactions and current absorption, not an asking-price average. The basis is shown, not asserted." },
+      { "title": "3 · Sell, or we buy", "body": "We market for 30 days. A sale completes on the agreed terms, or we buy at the assessed price on a defined date. Either way, you can plan around the proceeds." }
+    ],
+    "marketTitle": "What \"market price\" means",
+    "marketBody": "Market price is what comparable properties have actually transacted at, adjusted for your unit's specifics. Not a headline asking figure, and not a distressed discount. We show the comparables we used.",
+    "eligibilityTitle": "Who it suits",
+    "eligibility": "The programme suits owners who need certainty on timing. It is not a fit for every property, and qualification is honest and quick.",
+    "formOver": "Qualify",
+    "formTitle": "See if your property qualifies",
+    "formLead": "Tell us about the property. We'll tell you, plainly, whether it fits and what we think it is worth.",
+    "form": {
+      "name": "Your name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "community": "Community / location",
+      "communityPh": "e.g. Dubai Marina",
+      "propertyType": "Property type",
+      "propertyTypePlaceholder": "Select…",
+      "typeResidential": "Residential",
+      "typeCommercial": "Commercial",
+      "typeOffplan": "Off-plan",
+      "askingPrice": "Expected price (AED, optional)",
+      "message": "Anything else? (optional)",
+      "messagePh": "Size, bedrooms, condition, timing…",
+      "submit": "See if it qualifies",
+      "sending": "Sending…",
+      "fine": "No obligation. We use your details only to assess the property and respond.",
+      "successTitle": "Thank you.",
+      "successBody": "We have the details and will come back with a plain read on whether it qualifies and the price we see.",
+      "errors": {
+        "check": "Please check the highlighted fields.",
+        "save": "Something went wrong. Please try again, or email us directly.",
+        "name": { "required": "Please tell us your name." },
+        "email": { "required": "Please add an email.", "email": "That email doesn't look right." }
+      }
+    },
+    "disclaimer": "Indicative programme terms. Any offer to purchase is subject to title verification, due diligence and a signed agreement. Figures are estimates until confirmed."
   },
   "mortgage": {
     "inputs": {
@@ -534,6 +586,10 @@
     "about": "About",
     "insights": "Insights",
     "careers": "Careers",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "kyc": "KYC/AML",
     "rights": "© 2026 Edingrad Real Estate L.L.C",
     "disclaimer": "Information provided is for illustration and does not constitute investment advice."
   }

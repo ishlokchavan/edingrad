@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import type { CryptoAsset, CryptoRates } from '@/lib/crypto';
 import {
   submitCryptoEnquiry,
@@ -143,7 +144,10 @@ export function CryptoCalculator({ data }: { data: CryptoRates }) {
         )}
       </div>
 
-      <p className="calc-disclaimer">{t('disclaimer')}</p>
+      <p className="calc-disclaimer">
+        {t('disclaimer')}{' '}
+        <Link href="/legal/kyc-aml" className="calc-policy-link">{t('kycPolicy')}</Link>
+      </p>
     </div>
   );
 }

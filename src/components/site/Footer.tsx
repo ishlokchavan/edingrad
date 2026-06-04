@@ -41,6 +41,13 @@ export function SiteFooter() {
           </div>
         </div>
 
+        <nav className="site-foot-legal" aria-label="Legal">
+          <Link href="/legal/privacy">{t('privacy')}</Link>
+          <Link href="/legal/terms">{t('terms')}</Link>
+          <Link href="/legal/cookies">{t('cookies')}</Link>
+          <Link href="/legal/kyc-aml">{t('kyc')}</Link>
+        </nav>
+
         <div className="site-foot-bottom">
           <span>{t('rights')}</span>
           <span>{t('disclaimer')}</span>
