@@ -1065,3 +1065,20 @@ button,a{touch-action:manipulation}
 @media(max-width:760px){.si-detail-grid{grid-template-columns:1fr}}
 .si-disclaimer{margin-top:22px;max-width:62ch}
 .calc-policy-link{color:var(--accent);text-decoration:underline;white-space:nowrap}
+
+/* Get in touch — two-column form + supporting panel */
+.getintouch-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:start}
+.getintouch-form{max-width:640px}
+.getintouch-aside{position:sticky;top:84px;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+.getintouch-aside-media{position:relative;aspect-ratio:4/3}
+.getintouch-aside-media img{object-fit:cover}
+.getintouch-aside-body{padding:clamp(24px,3vw,32px)}
+.getintouch-aside-title{font-family:'Lynx Sans';font-weight:600;font-size:1.15rem;color:var(--text);margin-bottom:18px}
+.getintouch-points{list-style:none;padding:0;display:grid;gap:14px}
+.getintouch-points li{position:relative;padding-left:22px;color:var(--mid);font-size:.95rem;line-height:1.5;max-width:42ch}
+.getintouch-points li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@media(max-width:860px){
+  .getintouch-grid{grid-template-columns:1fr}
+  .getintouch-form{max-width:none}
+  .getintouch-aside{position:static}
+}

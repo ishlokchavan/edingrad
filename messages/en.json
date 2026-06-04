@@ -391,6 +391,14 @@
     "overline": "Get in touch",
     "title": "Speak to an expert",
     "lead": "Tell us the mandate and the timeframe. We reply with a plain read on whether, and how, we can help.",
+    "aside": {
+      "title": "What happens next",
+      "points": [
+        "We read your note and reply in person, usually within one business day.",
+        "If we can help, we say how. If we can't, we say that too, plainly.",
+        "Everything you share stays between us."
+      ]
+    },
     "form": {
       "name": "Your name",
       "namePh": "Jane Doe",
